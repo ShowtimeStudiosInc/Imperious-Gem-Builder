@@ -51,7 +51,7 @@ const modifiers = [
 ];
 const cuts = { Normal: { stats: zero, abilities: [] }, 'Perfect Cut': { stats: stat(3,2,2,1,1,3), abilities: [] }, 'Perfect Polish': { stats: stat(4,3,3,0,1,1), abilities: [] }, Defective: { stats: stat(-4,-2,-1,-1,-1,-3), abilities: ['Flawed Signature'] } };
 
-const $ = id => document.getElementById(id); const factionEl = $('faction'), gemEl = $('gem'), prismEl = $('prism'), eraEl = $('era'), cutEl = $('cut');
+const $ = id => document.getElementById(id); const factionEl = $('faction'), gemEl = $('gem'), prismEl = $('prism'), eraEl = $('era'), cutEl = $('cut'), fusionAEl = $('fusion-a'), fusionBEl = $('fusion-b');
 function option(value, label = value) { const node = document.createElement('option'); node.value = value; node.textContent = label; return node; }
 function choices(el, items, label = x => x) { el.replaceChildren(...items.map(x => option(typeof x === 'string' ? x : x.name, label(x)))); }
 function activeRecord() { return [...gems, ...frontier].find(g => g.name === gemEl.value && g.faction === factionEl.value); }
@@ -65,6 +65,13 @@ function levelGrowth(level, classification = 'Gem') { const gained = Math.max(0,
 function totalExpForLevel(level) { let total = 0; for (let current = 2; current <= level; current += 1) total += 100 + (current - 2) * 25; return total; }
 function expToNextLevel(level) { return level >= 30 ? null : 100 + (level - 1) * 25; }
 function refreshGems() { const selected = gemEl.value; const list = [...gems, ...frontier].filter(g => g.faction === factionEl.value).sort((a,b) => a.name.localeCompare(b.name)); choices(gemEl, list, g => g.name); if (list.some(g => g.name === selected)) gemEl.value = selected; refresh(); }
+function fusionId(record) { return `${record.faction}|${record.name}`; }
+function fusionComponent(el) { return [...gems, ...frontier].find(record => fusionId(record) === el.value); }
+function listAbilities(record) { return [...record.abilities, ...(record.hidden || []).map(ability => `Hidden: ${ability}`)]; }
+function populateFusionSelect(el, selected) { const records = [...gems, ...frontier].filter(record => !record.fusion).sort((a, b) => `${a.faction}:${a.name}`.localeCompare(`${b.faction}:${b.name}`)); el.replaceChildren(...records.map(record => { const node = option(fusionId(record), `${record.faction}: ${record.name}`); return node; })); if (records.some(record => fusionId(record) === selected)) el.value = selected; }
+function showFusionAbilities(target, record) { target.replaceChildren(...listAbilities(record).map(text => { const item = document.createElement('li'); item.textContent = text; return item; })); }
+function refreshFusion() { const first = fusionComponent(fusionAEl); const second = fusionComponent(fusionBEl); if (!first || !second) return; const combined = combine(first.stats, second.stats); $('fusion-a-name').textContent = `${first.name} abilities`; $('fusion-b-name').textContent = `${second.name} abilities`; $('fusion-stats').replaceChildren(...S.map(key => { const div = document.createElement('div'); div.className = 'stat'; div.innerHTML = `<span>${key}</span><strong>${combined[key]}</strong><div class="change">Base stat total</div>`; return div; })); showFusionAbilities($('fusion-a-abilities'), first); showFusionAbilities($('fusion-b-abilities'), second); }
+function initialiseFusionTool() { const first = fusionAEl.value; const second = fusionBEl.value; populateFusionSelect(fusionAEl, first); populateFusionSelect(fusionBEl, second); if (!fusionAEl.value) fusionAEl.selectedIndex = 0; if (!fusionBEl.value) fusionBEl.selectedIndex = Math.min(1, fusionBEl.options.length - 1); refreshFusion(); }
 function refresh() {
   const record = activeRecord(); if (!record) return;
   const prismActive = record.name === 'Clear Quartz' && record.faction === 'United Frontier'; $('prism-step').classList.toggle('hidden', !prismActive);
@@ -84,3 +91,4 @@ function refresh() {
 choices(factionEl, ['Gempire', 'United Frontier']); choices(eraEl, modifiers, m => m.name); choices(prismEl, ['Unshifted', ...quartz.map(q => q.name)]); choices(cutEl, Object.keys(cuts));
 factionEl.addEventListener('change', refreshGems); [gemEl, prismEl, eraEl, cutEl, $('level')].forEach(el => el.addEventListener('input', refresh));
 refreshGems();
+fusionAEl.addEventListener('change', refreshFusion); fusionBEl.addEventListener('change', refreshFusion); initialiseFusionTool();

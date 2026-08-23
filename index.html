@@ -83,6 +83,39 @@
           <ul id="abilities"></ul>
         </div>
       </section>
+
+      <section class="result fusion-tool" aria-label="Fusion stat combiner">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">FUSION TOOL</p>
+            <h2>Fusion Stat Combiner</h2>
+            <p class="lede">Choose two component gems to total their base stats and compare their abilities.</p>
+          </div>
+        </div>
+        <div class="fusion-selects">
+          <div>
+            <label for="fusion-a">First component</label>
+            <select id="fusion-a"></select>
+          </div>
+          <div>
+            <label for="fusion-b">Second component</label>
+            <select id="fusion-b"></select>
+          </div>
+        </div>
+        <h3 class="fusion-heading">Combined base stats</h3>
+        <div class="stats" id="fusion-stats"></div>
+        <div class="fusion-abilities">
+          <article>
+            <h3 id="fusion-a-name">First component abilities</h3>
+            <ul id="fusion-a-abilities"></ul>
+          </article>
+          <article>
+            <h3 id="fusion-b-name">Second component abilities</h3>
+            <ul id="fusion-b-abilities"></ul>
+          </article>
+        </div>
+        <p class="field-note">The total is the two selected gems’ base stat sum. Choose which abilities become part of the fusion according to your fusion rules.</p>
+      </section>
     </main>
     <script src="app.js"></script>
   </body>
