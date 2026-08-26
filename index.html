@@ -71,7 +71,7 @@
           <div class="badges" id="badges"></div>
         </div>
         <div class="profile">
-          <div class="meta-card"><span>Rank</span><strong id="rank">Not assigned</strong></div>
+          <div class="meta-card"><span id="rank-label">Rank</span><strong id="rank">Not assigned</strong></div>
           <div class="meta-card"><span>Base height</span><strong id="height">Not assigned</strong></div>
           <div class="meta-card"><span>Level</span><strong id="result-level">1</strong></div>
           <div class="meta-card"><span>EXP to next level</span><strong id="next-exp">100</strong></div>
@@ -114,7 +114,9 @@
             <ul id="fusion-b-abilities"></ul>
           </article>
         </div>
-        <p class="field-note">The total is the two selected gems’ base stat sum. Choose which abilities become part of the fusion according to your fusion rules.</p>
+        <h3 class="fusion-heading">Suggested combined abilities</h3>
+        <div class="fusion-suggestions" id="fusion-suggestions"></div>
+        <p class="field-note">The total is the two selected gems' base stat sum. Choose which abilities become part of the fusion according to your fusion rules.</p>
       </section>
     </main>
     <script src="app.js"></script>

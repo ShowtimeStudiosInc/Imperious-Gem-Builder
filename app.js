@@ -26,15 +26,16 @@ const gems = [
   add('Zircon', [26,5,3,5,7,1], 'Sharp Case'), add('Angelite', [28,3,4,5,6,8], 'Healing Essence'), add('Rutile', [26,6,3,6,7,1], 'Site Sense'), add('Willemite', [26,6,3,6,6,4], 'Wide Watch'), add('Opal', [34,7,7,5,8,6], 'Endless Library', { tags: ['Non-fusion'] }), add('Steel', [38,6,9,5,5,4], 'Containment Field', { kind: 'Metal', hidden: ['Containment Field'] }), add('Tungsten', [46,8,13,3,5,3], 'Heat Proof', { kind: 'Metal' }), add('Stellite', [44,9,12,5,8,8], 'Upgrade & Merge', { kind: 'Metal' }), add('Serpentine', [28,4,4,5,8,5], 'Close Study', { tags: ['Non-fusion'], hidden: ['Steady Hands'] }),
   add('Quartz', [30,7,5,5,4,1], 'Tall and Tough', { tags: ['Quartz group'] }), add('Amethyst', [30,7,5,5,5,3], 'Purple Flame Generation', { tags: ['Quartz subtype'], hidden: ['Purple Flame Generation'] }), add('Aventurine', [30,7,5,5,5,4], 'Limited Plant Generation & Shaping', { tags: ['Quartz subtype'], hidden: ['Limited Plant Generation & Shaping'] }), add('Blue Quartz', [30,7,5,5,5,5], 'Cool Waters', { tags: ['Quartz subtype'], hidden: ['Cool Waters'] }), add('Carnelian', [30,7,5,5,5,3], 'Sand Play', { tags: ['Quartz subtype'], hidden: ['Sand Play'] }), add('Cherry Quartz', [28,8,4,5,5,1], 'No listed special', { tags: ['Quartz subtype'] }), add('Citrine', [28,7,4,5,5,2], 'Oxidation Inducement', { tags: ['Quartz subtype'], hidden: ['Oxidation Inducement'] }), add('Jasper', [34,8,7,5,4,1], 'No listed special', { tags: ['Quartz subtype'] }), add('Milky Quartz', [30,7,5,4,5,2], 'Limited Sleep Induction', { tags: ['Quartz subtype'], hidden: ['Limited Sleep Induction'] }), add('Prasiolite', [30,7,5,5,6,4], 'Limited Technokinesis', { tags: ['Quartz subtype'], hidden: ['Limited Technokinesis'] }), add('Rose Quartz', [30,7,5,5,5,3], 'Empathy', { tags: ['Quartz subtype'], hidden: ['Empathy'] }), add('Smoky Quartz', [30,7,5,5,5,3], 'Vibration Generation', { tags: ['Quartz subtype', 'Non-fusion'], hidden: ['Vibration Generation'] }), add('Zebra Jasper', [32,8,6,5,5,2], 'Echolocation', { tags: ['Quartz subtype'], hidden: ['Echolocation'] }),
   add('Peridot, Era 0', [32,9,6,5,7,3], 'Tech Speak; Metal Control', { hidden: ['Technotravel'], height: "7'6\"" }), add('Peridot, Era 1', [30,5,5,5,7,6], 'Metal Control', { hidden: ['Technopathy'], height: "5'10\"" }), add('Peridot, Era 2A', [30,5,5,5,7,3], 'Metal Control', { hidden: ['Metal Control'], height: "4'4\"" }), add('Gold, Era 0-1', [36,5,8,5,5,6], 'Gold Control; Pure Complexion', { kind: 'Metal' }), add('Gold, Era 2A', [32,4,6,5,7,7], 'Child of the Sun God; Fine Complexion', { kind: 'Metal', height: "6'3\"" }), add('Bronze, Era 0-1', [42,6,11,4,9,3], 'Structural Analysis', { kind: 'Metal', height: "6'2\"" }), add('Hematite, Era 0', [32,9,6,5,6,11], 'Push Broadcast', { height: "7'11\"" }), add('Hematite, Era 2', [34,8,7,5,6,10], 'Memory Wipe', { height: "8'2\"" }), add('Hessonite, Era 0', [36,10,8,6,7,10], 'Personal Darkness', { height: "9'2\"" }), add('Sunstone, Era 1B', [26,6,3,5,8,9], 'Deep Insight; Fire Power'), add('Goshenite, Era 0', [28,9,4,5,8,8], 'Plasma Control', { hidden: ['Full Read'] }), add('Obsidian', [32,8,6,5,5,3], 'Lava Shaping', { hidden: ['Lava Shaping'] }),
-  { name: 'Sphene', faction: 'Gempire', stats: zero, fusion: true, components: 'Pearl + Peridot', rank: '4.2 Median Service Trade', height: "11'10\"", abilities: ['Holographic Projection; Metal Control; Holo-Sphene; Pocket Space'], hidden: ['Elemental Affinity'] },
-  { name: 'Moonstone', faction: 'Gempire', stats: zero, fusion: true, components: 'Lapis + Pearl', rank: '3.3 Low Militia', height: "14'0\"", abilities: ['Water Control; Pocket Space; Holographic Projection; Holo-Moonstone'], hidden: ['Elemental Affinity'] },
-  { name: 'Malachite, Fusion', faction: 'Gempire', stats: zero, fusion: true, components: 'Lapis + Quartz subtype', rank: '3.2 Median Militia', height: "13'10\"", abilities: ['Water Control; Tall and Tough; selected Quartz subtype ability'] },
-  { name: 'Rhodonite', faction: 'Gempire', stats: zero, fusion: true, components: 'Ruby + Pearl', rank: '3.2 Median Militia', height: "9'10\"", abilities: ['Fire Generation; Big Jump; Holographic Projection; Holo-Rhodonite; Pocket Space; Fireball'], hidden: ['Elemental Affinity'] },
-  { name: 'Garnet', faction: 'Gempire', stats: zero, fusion: true, components: 'Ruby + Sapphire', rank: '2.2 Median Authoritative/Aristocrat', height: "7'8\"", abilities: ['Clairvoyance; Limited Cryokinesis; Limited Calokinesis'] },
-  { name: 'Green Serpentine', faction: 'Gempire', stats: zero, fusion: true, components: 'Scapolite + Lapis', rank: '2.2 Median Authoritative/Aristocrat', height: "13'11\"", abilities: ['Hypnotic Voice; Serpent Shift'], hidden: ['Voice Copy; Voice Steal'] },
-  { name: 'Sardonyx, Pyrope Variant', faction: 'Gempire', stats: zero, fusion: true, components: 'Pyrope + Pearl', rank: '2.1 High Authoritative/Aristocrat', height: "13'10\"", abilities: ['Crowd Pleaser; Silence; Holographic Projection; Holo-Sardonyx; Pocket Space; Levitation'], hidden: ['Elemental Affinity'] },
-  { name: 'Sardonyx, Hessonite Variant', faction: 'Gempire', stats: zero, fusion: true, components: 'Hessonite + Pearl', rank: '2.1 High Authoritative/Aristocrat', height: "13'8\"", abilities: ['Crowd Pleaser; Holographic Projection; Holo-Sardonyx; Pocket Space'], hidden: ['Commanding Aura; Elemental Affinity'] },
-  { name: 'Tanzanite', faction: 'Gempire', stats: zero, fusion: true, components: 'Sapphire + Pearl', rank: '2.1 High Authoritative/Aristocrat', height: "9'10\"", abilities: ['Clairvoyance; Pocket Space; Holographic Projection; Holo-Tanzanite'], hidden: ['Vision Cast; Elemental Affinity'] },
+  { name: 'Sphene', faction: 'Gempire', stats: zero, fusion: true, components: 'Pearl + Peridot', threatLevel: 'Elite', height: "11'10\"", abilities: ['Holographic Projection; Metal Control; Holo-Sphene; Pocket Space'], hidden: ['Elemental Affinity'] },
+  { name: 'Moonstone', faction: 'Gempire', stats: zero, fusion: true, components: 'Lapis + Pearl', threatLevel: 'Champion', height: "14'0\"", abilities: ['Water Control; Pocket Space; Holographic Projection; Holo-Moonstone'], hidden: ['Elemental Affinity'] },
+  { name: 'Malachite, Fusion', faction: 'Gempire', stats: zero, fusion: true, components: 'Lapis + Quartz subtype', threatLevel: 'Champion', height: "13'10\"", abilities: ['Water Control; Tall and Tough; selected Quartz subtype ability'] },
+  { name: 'Rhodonite', faction: 'Gempire', stats: zero, fusion: true, components: 'Ruby + Pearl', threatLevel: 'Standard', height: "9'10\"", abilities: ['Fire Generation; Big Jump; Holographic Projection; Holo-Rhodonite; Pocket Space; Fireball'], hidden: ['Elemental Affinity'] },
+  { name: 'Garnet', faction: 'Gempire', stats: zero, fusion: true, components: 'Ruby + Sapphire', threatLevel: 'Elite', height: "7'8\"", abilities: ['Clairvoyance; Limited Cryokinesis; Limited Calokinesis'] },
+  { name: 'Green Serpentine', faction: 'Gempire', stats: zero, fusion: true, components: 'Scapolite + Lapis', threatLevel: 'Champion', height: "13'11\"", abilities: ['Hypnotic Voice; Serpent Shift'], hidden: ['Voice Copy; Voice Steal'] },
+  { name: 'Sardonyx, Pyrope Variant', faction: 'Gempire', stats: zero, fusion: true, components: 'Pyrope + Pearl', threatLevel: 'Champion', height: "13'10\"", abilities: ['Crowd Pleaser; Silence; Holographic Projection; Holo-Sardonyx; Pocket Space; Levitation'], hidden: ['Elemental Affinity'] },
+  { name: 'Sardonyx, Hessonite Variant', faction: 'Gempire', stats: zero, fusion: true, components: 'Hessonite + Pearl', threatLevel: 'Champion', height: "13'8\"", abilities: ['Crowd Pleaser; Holographic Projection; Holo-Sardonyx; Pocket Space'], hidden: ['Commanding Aura; Elemental Affinity'] },
+  { name: 'Tanzanite', faction: 'Gempire', stats: zero, fusion: true, components: 'Sapphire + Pearl', threatLevel: 'Elite', height: "9'10\"", abilities: ['Clairvoyance; Pocket Space; Holographic Projection; Holo-Tanzanite'], hidden: ['Vision Cast; Elemental Affinity'] },
+  { name: 'Shattuckite', faction: 'Rogue', stats: zero, fusion: true, components: 'Pearl + Sapphire + Emerald + Zircon + Lapis Lazuli', threatLevel: 'Titan', height: "18'0\"", abilities: ['Atmokinesis (Weather Manipulation); Shield Generation; Monstrous Howl'], hidden: ['Technological Weaponry Crafting'] },
 ];
 
 const quartz = [
@@ -51,14 +52,120 @@ const modifiers = [
 ];
 const cuts = { Normal: { stats: zero, abilities: [] }, 'Perfect Cut': { stats: stat(3,2,2,1,1,3), abilities: [] }, 'Perfect Polish': { stats: stat(4,3,3,0,1,1), abilities: [] }, Defective: { stats: stat(-4,-2,-1,-1,-1,-3), abilities: ['Flawed Signature'] } };
 
+const superpowersWiki = {
+  'Water Control': 'https://superpower.fandom.com/wiki/Hydrokinesis',
+  'Fire Control': 'https://superpower.fandom.com/wiki/Pyrokinesis',
+  'Earth Shaping': 'https://superpower.fandom.com/wiki/Geokinesis',
+  'Light Tools': 'https://superpower.fandom.com/wiki/Light_Constructs',
+  'Electricity Generation': 'https://superpower.fandom.com/wiki/Electricity_Manipulation',
+  'Shield Summoning': 'https://superpower.fandom.com/wiki/Force_Field_Generation',
+  'Holographic Projection': 'https://superpower.fandom.com/wiki/Holographic_Projection',
+  'Teleportation': 'https://superpower.fandom.com/wiki/Teleportation',
+  'Healing': 'https://superpower.fandom.com/wiki/Healing',
+  'Flight': 'https://superpower.fandom.com/wiki/Flight',
+  'Invisibility': 'https://superpower.fandom.com/wiki/Invisibility',
+  'Telekinesis': 'https://superpower.fandom.com/wiki/Telekinesis',
+  'Ice Control': 'https://superpower.fandom.com/wiki/Cryokinesis',
+  'Plant Control': 'https://superpower.fandom.com/wiki/Chlorokinesis',
+  'Sound Control': 'https://superpower.fandom.com/wiki/Sound_Manipulation',
+  'Gravity Control': 'https://superpower.fandom.com/wiki/Gravitokinesis',
+  'Time Manipulation': 'https://superpower.fandom.com/wiki/Time_Manipulation',
+  'Clairvoyance': 'https://superpower.fandom.com/wiki/Clairvoyance',
+  'Empathy': 'https://superpower.fandom.com/wiki/Empathy',
+  'Mind Control': 'https://superpower.fandom.com/wiki/Mind_Control',
+  'Shapeshifting': 'https://superpower.fandom.com/wiki/Shapeshifting',
+  'Super Strength': 'https://superpower.fandom.com/wiki/Enhanced_Strength',
+  'Super Speed': 'https://superpower.fandom.com/wiki/Enhanced_Speed',
+  'Energy Blasts': 'https://superpower.fandom.com/wiki/Energy_Beams',
+  'Force Fields': 'https://superpower.fandom.com/wiki/Force_Field_Generation',
+  'Duplication': 'https://superpower.fandom.com/wiki/Duplication',
+  'Size Manipulation': 'https://superpower.fandom.com/wiki/Size_Manipulation',
+  'Intangibility': 'https://superpower.fandom.com/wiki/Intangibility',
+  'Telepathy': 'https://superpower.fandom.com/wiki/Telepathy',
+  'Precognition': 'https://superpower.fandom.com/wiki/Precognition',
+  'Retrocognition': 'https://superpower.fandom.com/wiki/Retrocognition',
+  'Probability Manipulation': 'https://superpower.fandom.com/wiki/Probability_Manipulation',
+  'Reality Warping': 'https://superpower.fandom.com/wiki/Reality_Warping',
+  'Matter Manipulation': 'https://superpower.fandom.com/wiki/Matter_Manipulation',
+  'Magnetic Field': 'https://superpower.fandom.com/wiki/Magnetism_Manipulation',
+  'Lava Generation & Shaping': 'https://superpower.fandom.com/wiki/Magma_Manipulation',
+  'Wind Control': 'https://superpower.fandom.com/wiki/Aerokinesis',
+  'Metal Control': 'https://superpower.fandom.com/wiki/Metal_Manipulation',
+  'Technology Manipulation': 'https://superpower.fandom.com/wiki/Technopathy',
+  'Poison Manipulation': 'https://superpower.fandom.com/wiki/Poison_Manipulation',
+  'Darkness Manipulation': 'https://superpower.fandom.com/wiki/Darkness_Manipulation',
+  'Light Manipulation': 'https://superpower.fandom.com/wiki/Photokinesis',
+  'Crystal Manipulation': 'https://superpower.fandom.com/wiki/Crystal_Manipulation',
+  'Sound Manipulation': 'https://superpower.fandom.com/wiki/Sound_Manipulation',
+  'Voice Manipulation': 'https://superpower.fandom.com/wiki/Voice_Manipulation',
+  'Bubble Creation': 'https://superpower.fandom.com/wiki/Bubble_Manipulation',
+  'Weapon Creation': 'https://superpower.fandom.com/wiki/Weapon_Creation',
+  'Portal Creation': 'https://superpower.fandom.com/wiki/Portal_Creation',
+  'Space Manipulation': 'https://superpower.fandom.com/wiki/Space_Manipulation',
+  'Cosmic Manipulation': 'https://superpower.fandom.com/wiki/Cosmic_Manipulation',
+};
+
+const customAbilitySuggestions = {
+  'Water Control + Fire Control': {
+    name: 'Steam Manipulation',
+    description: 'The ability to create and control steam, combining the heat of fire with the moisture of water.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Steam_Manipulation'
+  },
+  'Earth Shaping + Plant Control': {
+    name: 'Nature Manipulation',
+    description: 'Control over both earth and plant life, allowing for manipulation of the entire natural environment.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Nature_Manipulation'
+  },
+  'Electricity Generation + Metal Control': {
+    name: 'Electromagnetic Manipulation',
+    description: 'Combined control over electricity and magnetic fields, allowing for electromagnetic pulse generation and metal manipulation.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Electromagnetism_Manipulation'
+  },
+  'Ice Control + Wind Control': {
+    name: 'Blizzard Creation',
+    description: 'The ability to create powerful blizzards by combining ice generation with wind control.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Blizzard_Creation'
+  },
+  'Fire Control + Wind Control': {
+    name: 'Firestorm Creation',
+    description: 'The ability to create and control massive firestorms by combining fire generation with wind manipulation.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Firestorm_Manipulation'
+  },
+  'Shield Summoning + Force Fields': {
+    name: 'Absolute Defense',
+    description: 'Enhanced defensive capabilities that combine multiple shield and force field techniques for impenetrable protection.',
+    wikiLink: null
+  },
+  'Teleportation + Invisibility': {
+    name: 'Phasing',
+    description: 'The ability to become intangible and move through solid objects while remaining undetected.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Intangibility'
+  },
+  'Healing + Empathy': {
+    name: 'Restorative Empathy',
+    description: 'Enhanced healing abilities powered by emotional connection and understanding of others\' pain.',
+    wikiLink: null
+  },
+  'Super Strength + Super Speed': {
+    name: 'Kinetic Charging',
+    description: 'The ability to build up kinetic energy through movement and release it in devastating attacks.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Kinetic_Energy_Manipulation'
+  },
+  'Clairvoyance + Precognition': {
+    name: 'Omniscience',
+    description: 'The combination of seeing current events and future possibilities, allowing for near-complete awareness.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Omniscience'
+  },
+};
+
 const $ = id => document.getElementById(id); const factionEl = $('faction'), gemEl = $('gem'), prismEl = $('prism'), eraEl = $('era'), cutEl = $('cut'), fusionAEl = $('fusion-a'), fusionBEl = $('fusion-b');
 function option(value, label = value) { const node = document.createElement('option'); node.value = value; node.textContent = label; return node; }
 function choices(el, items, label = x => x) { el.replaceChildren(...items.map(x => option(typeof x === 'string' ? x : x.name, label(x)))); }
 function activeRecord() { return [...gems, ...frontier].find(g => g.name === gemEl.value && g.faction === factionEl.value); }
 function isService(rank) { return rank?.includes('Servant') || rank?.includes('Service Trade'); }
-function rankFor(record) { return rankHeights[record.name]?.[0] || record.rank || (record.faction === 'United Frontier' ? 'United Frontier' : 'Not assigned'); }
+function rankFor(record) { if (record.fusion) return record.threatLevel || 'Unknown Threat'; return rankHeights[record.name]?.[0] || record.rank || (record.faction === 'United Frontier' ? 'United Frontier' : 'Not assigned'); }
 function heightFor(record) { return record.height || rankHeights[record.name]?.[1] || 'Not assigned'; }
-function jobBonus(rank, cut) { if (!cut.startsWith('Perfect')) return zero; if (rank.includes('Servant')) return stat(0,0,0,1,0,0); if (rank.includes('Service Trade')) return stat(0,0,1,0,0,0); if (rank.includes('Militia')) return stat(0,1,0,0,0,0); if (rank.includes('Authoritative')) return stat(0,0,1,0,0,0); if (rank.includes('Aristocrat')) return stat(0,0,0,0,0,1); if (rank.includes('Transcendent')) return stat(0,0,0,0,0,2); return zero; }
+function jobBonus(rank, cut) { if (!cut.startsWith('Perfect')) return zero; if (rank.includes('Servant')) return stat(0,0,0,1,0,0); if (rank.includes('Service Trade')) return stat(0,0,1,0,0,0); if (rank.includes('Militia')) return stat(0,1,0,0,0,0); if (rank.includes('Authoritative')) return stat(0,0,1,0,0,0); if (rank.includes('Aristocrat')) return stat(0,0,0,0,0,1); if (rank.includes('Transcendent')) return stat(0,0,0,0,0,2); if (rank.includes('Titan') || rank.includes('Leviathan') || rank.includes('Colossus') || rank.includes('Apocalypse') || rank.includes('Extinction')) return stat(0,0,0,0,0,2); if (rank.includes('Champion') || rank.includes('Elite')) return stat(0,0,0,0,0,1); return zero; }
 function combine(...sources) { const out = {}; S.forEach(k => out[k] = sources.reduce((sum, s) => sum + (s[k] || 0), 0)); return out; }
 function enhanceFirstAbility(abilities) { const upgraded = [...abilities]; if (!upgraded.length || upgraded[0] === 'No listed special') return upgraded; const parts = upgraded[0].split(';').map(part => part.trim()); parts[0] = `Enhanced ${parts[0]}`; upgraded[0] = parts.join('; '); return upgraded; }
 function levelGrowth(level, classification = 'Gem') { const gained = Math.max(0, level - 1); return stat(gained * 4, gained * 2, Math.floor(gained / 2), Math.floor(gained / 4), 0, gained * (classification === 'Organic' ? 2 : 4)); }
@@ -66,11 +173,64 @@ function totalExpForLevel(level) { let total = 0; for (let current = 2; current 
 function expToNextLevel(level) { return level >= 30 ? null : 100 + (level - 1) * 25; }
 function refreshGems() { const selected = gemEl.value; const list = [...gems, ...frontier].filter(g => g.faction === factionEl.value).sort((a,b) => a.name.localeCompare(b.name)); choices(gemEl, list, g => g.name); if (list.some(g => g.name === selected)) gemEl.value = selected; refresh(); }
 function fusionId(record) { return `${record.faction}|${record.name}`; }
-function fusionComponent(el) { return [...gems, ...frontier].find(record => fusionId(record) === el.value); }
-function listAbilities(record) { return [...record.abilities, ...(record.hidden || []).map(ability => `Hidden: ${ability}`)]; }
-function populateFusionSelect(el, selected) { const records = [...gems, ...frontier].filter(record => !record.fusion).sort((a, b) => `${a.faction}:${a.name}`.localeCompare(`${b.faction}:${b.name}`)); el.replaceChildren(...records.map(record => { const node = option(fusionId(record), `${record.faction}: ${record.name}`); return node; })); if (records.some(record => fusionId(record) === selected)) el.value = selected; }
-function showFusionAbilities(target, record) { target.replaceChildren(...listAbilities(record).map(text => { const item = document.createElement('li'); item.textContent = text; return item; })); }
-function refreshFusion() { const first = fusionComponent(fusionAEl); const second = fusionComponent(fusionBEl); if (!first || !second) return; const combined = combine(first.stats, second.stats); $('fusion-a-name').textContent = `${first.name} abilities`; $('fusion-b-name').textContent = `${second.name} abilities`; $('fusion-stats').replaceChildren(...S.map(key => { const div = document.createElement('div'); div.className = 'stat'; div.innerHTML = `<span>${key}</span><strong>${combined[key]}</strong><div class="change">Base stat total</div>`; return div; })); showFusionAbilities($('fusion-a-abilities'), first); showFusionAbilities($('fusion-b-abilities'), second); }
+function fusionComponent(el) { const value = el.value; let record = [...gems, ...frontier].find(r => fusionId(r) === value); if (!record) { const quartzSubtypes = quartz.map(q => ({ name: q.name, faction: 'United Frontier', stats: combine(frontier.find(f => f.name === 'Clear Quartz').stats, q.modifier), abilities: q.abilities, isQuartzSubtype: true })); record = quartzSubtypes.find(r => fusionId(r) === value); } return record; }
+function listAbilities(record) { const abilities = record.abilities || []; const hidden = record.hidden || []; return [...abilities, ...hidden.map(ability => `Hidden: ${ability}`)]; }
+function populateFusionSelect(el, selected) { const baseRecords = [...gems, ...frontier].filter(record => !record.fusion); const quartzSubtypes = quartz.map(q => ({ name: q.name, faction: 'United Frontier', stats: combine(frontier.find(f => f.name === 'Clear Quartz').stats, q.modifier), abilities: q.abilities, isQuartzSubtype: true })); const records = [...baseRecords, ...quartzSubtypes].sort((a, b) => `${a.faction}:${a.name}`.localeCompare(`${b.faction}:${b.name}`)); el.replaceChildren(...records.map(record => { const node = option(fusionId(record), `${record.faction}: ${record.name}${record.isQuartzSubtype ? ' (Quartz subtype)' : ''}`); return node; })); if (records.some(record => fusionId(record) === selected)) el.value = selected; }
+function showFusionAbilities(target, record) { if (!record) return; const abilities = record.abilities || []; const hidden = record.hidden || []; const allAbilities = [...abilities, ...hidden.map(ability => `Hidden: ${ability}`)]; target.replaceChildren(...allAbilities.map(text => { const item = document.createElement('li'); item.textContent = text; return item; })); }
+function generateAbilitySuggestions(first, second) {
+  const suggestions = [];
+  const firstAbilities = first.abilities || [];
+  const secondAbilities = second.abilities || [];
+  
+  // Check for custom combinations
+  for (const firstAbility of firstAbilities) {
+    for (const secondAbility of secondAbilities) {
+      const comboKey = `${firstAbility} + ${secondAbility}`;
+      const reverseKey = `${secondAbility} + ${firstAbility}`;
+      
+      if (customAbilitySuggestions[comboKey]) {
+        suggestions.push(customAbilitySuggestions[comboKey]);
+      } else if (customAbilitySuggestions[reverseKey]) {
+        suggestions.push(customAbilitySuggestions[reverseKey]);
+      }
+    }
+  }
+  
+  // Check for individual ability wiki links
+  const allAbilities = [...firstAbilities, ...secondAbilities];
+  for (const ability of allAbilities) {
+    for (const [wikiName, wikiLink] of Object.entries(superpowersWiki)) {
+      if (ability.toLowerCase().includes(wikiName.toLowerCase()) || 
+          wikiName.toLowerCase().includes(ability.toLowerCase())) {
+        if (!suggestions.some(s => s.name === wikiName)) {
+          suggestions.push({
+            name: wikiName,
+            description: `Based on ${ability}. See wiki for full details.`,
+            wikiLink: wikiLink
+          });
+        }
+      }
+    }
+  }
+  
+  // If no specific matches, add some general fusion suggestions
+  if (suggestions.length === 0) {
+    suggestions.push({
+      name: 'Hybrid Mastery',
+      description: 'A unique combination of the component gems\' abilities, creating effects greater than the sum of their parts.',
+      wikiLink: null
+    });
+    suggestions.push({
+      name: 'Synergistic Power',
+      description: 'The fusion gains enhanced versions of both components\' primary abilities that work in harmony.',
+      wikiLink: null
+    });
+  }
+  
+  return suggestions;
+}
+
+function refreshFusion() { const first = fusionComponent(fusionAEl); const second = fusionComponent(fusionBEl); if (!first || !second) return; const combined = combine(first.stats, second.stats); $('fusion-a-name').textContent = `${first.name} abilities`; $('fusion-b-name').textContent = `${second.name} abilities`; $('fusion-stats').replaceChildren(...S.map(key => { const div = document.createElement('div'); div.className = 'stat'; div.innerHTML = `<span>${key}</span><strong>${combined[key]}</strong><div class="change">Base stat total</div>`; return div; })); showFusionAbilities($('fusion-a-abilities'), first); showFusionAbilities($('fusion-b-abilities'), second); const suggestions = generateAbilitySuggestions(first, second); const suggestionsContainer = $('fusion-suggestions'); suggestionsContainer.replaceChildren(...suggestions.map(suggestion => { const article = document.createElement('article'); article.className = 'suggestion-card'; let content = `<h4>${suggestion.name}</h4><p>${suggestion.description}</p>`; if (suggestion.wikiLink) { content += `<a href="${suggestion.wikiLink}" target="_blank" rel="noopener noreferrer">View on Superpowers Wiki →</a>`; } article.innerHTML = content; return article; })); }
 function initialiseFusionTool() { const first = fusionAEl.value; const second = fusionBEl.value; populateFusionSelect(fusionAEl, first); populateFusionSelect(fusionBEl, second); if (!fusionAEl.value) fusionAEl.selectedIndex = 0; if (!fusionBEl.value) fusionBEl.selectedIndex = Math.min(1, fusionBEl.options.length - 1); refreshFusion(); }
 function refresh() {
   const record = activeRecord(); if (!record) return;
@@ -82,13 +242,13 @@ function refresh() {
   if (cutEl.value === 'Perfect Polish' && !polishAllowed) cutEl.value = 'Perfect Cut'; if (cutEl.value === 'Perfect Cut' && !cutAllowed) cutEl.value = 'Perfect Polish';
   const level = Math.min(30, Math.max(1, Number.parseInt($('level').value, 10) || 1)); $('level').value = level;
   const cutData = cuts[cutEl.value]; const bonus = jobBonus(rank, cutEl.value); const growth = levelGrowth(level, record.classification); const final = combine(base, modifier.stats, cutData.stats, bonus, growth); const changes = combine(modifier.stats, cutData.stats, bonus, growth, prismActive && prismEl.value !== 'Unshifted' ? quartz.find(q => q.name === prismEl.value).modifier : zero);
-  $('result-name').textContent = prismActive && prismEl.value !== 'Unshifted' ? prismEl.value : record.name; $('rank').textContent = rank; $('height').textContent = heightFor(record); $('result-level').textContent = `${level} / 30`; $('next-exp').textContent = expToNextLevel(level) === null ? 'Level cap reached' : expToNextLevel(level).toLocaleString(); $('total-exp').textContent = totalExpForLevel(level).toLocaleString();
+  $('result-name').textContent = prismActive && prismEl.value !== 'Unshifted' ? prismEl.value : record.name; $('rank').textContent = rank; $('rank-label').textContent = record.fusion ? 'Threat Level' : 'Rank'; $('height').textContent = heightFor(record); $('result-level').textContent = `${level} / 30`; $('next-exp').textContent = expToNextLevel(level) === null ? 'Level cap reached' : expToNextLevel(level).toLocaleString(); $('total-exp').textContent = totalExpForLevel(level).toLocaleString();
   $('badges').replaceChildren(...[record.faction, ...(record.tags || []), modifier.unique ? 'Unique modifier' : ''].filter(Boolean).map(x => { const b = document.createElement('span'); b.textContent = x; return b; }));
   $('stats').replaceChildren(...S.map(key => { const div = document.createElement('div'); div.className = 'stat'; const delta = changes[key]; div.innerHTML = record.fusion ? `<span>${key}</span><strong>?</strong><div class="change">Component-derived</div>` : `<span>${key}</span><strong>${Math.max(0, final[key])}</strong><div class="change">${delta ? `${delta > 0 ? '+' : ''}${delta} modifier` : 'Base value'}</div>`; return div; }));
   const baseAbilities = prismActive && prismEl.value !== 'Unshifted' ? record.abilities.filter(ability => ability !== 'Prism') : record.abilities; const primaryAbilities = [...baseAbilities, ...inherited]; const standardAbilities = cutEl.value.startsWith('Perfect') ? enhanceFirstAbility(primaryAbilities) : primaryAbilities; const abilityList = [...standardAbilities, ...modifier.abilities, ...cutData.abilities, ...(record.hidden || []).map(a => `Hidden: ${a}`)]; $('abilities').replaceChildren(...abilityList.map(text => { const li = document.createElement('li'); li.textContent = text; return li; }));
   const notes = []; if (record.fusion) notes.push(`This fusion uses ${record.components}. Its source sheet says to use its two component stats, but the combination formula has not been supplied, so its final stats remain unresolved.`); if (modifier.unique) notes.push('Unique modifiers replace an era modifier and should only be used for approved case-by-case records.'); if (cutEl.value.startsWith('Perfect')) notes.push('Perfect Cut and Perfect Polish enhance the gem type’s first listed standard ability.'); if (cutEl.value === 'Defective') notes.push('Defective penalty transfers are not automated yet. Apply only the allowed transfers and do not reduce any stat below 0.'); if (record.name.includes('Era')) notes.push('This record already has an era-labelled stat block. Confirm whether its base stats should also receive the selected era modifier before using it in play.'); if (prismActive) notes.push('United Frontier Prism shifts apply their listed stat modifier to Clear Quartz base stats.'); notes.push('Level gains are included: +4 HP and +2 ATK each level, +1 DEF every 2 levels, +1 SPD every 4 levels, and +4 MAG each level for Gems.'); $('notice').textContent = notes.join(' ');
 }
-choices(factionEl, ['Gempire', 'United Frontier']); choices(eraEl, modifiers, m => m.name); choices(prismEl, ['Unshifted', ...quartz.map(q => q.name)]); choices(cutEl, Object.keys(cuts));
+choices(factionEl, ['Gempire', 'United Frontier', 'Rogue']); choices(eraEl, modifiers, m => m.name); choices(prismEl, ['Unshifted', ...quartz.map(q => q.name)]); choices(cutEl, Object.keys(cuts));
 factionEl.addEventListener('change', refreshGems); [gemEl, prismEl, eraEl, cutEl, $('level')].forEach(el => el.addEventListener('input', refresh));
 refreshGems();
 fusionAEl.addEventListener('change', refreshFusion); fusionBEl.addEventListener('change', refreshFusion); initialiseFusionTool();
