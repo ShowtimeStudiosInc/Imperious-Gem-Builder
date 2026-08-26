@@ -103,6 +103,127 @@ const superpowersWiki = {
   'Portal Creation': 'https://superpower.fandom.com/wiki/Portal_Creation',
   'Space Manipulation': 'https://superpower.fandom.com/wiki/Space_Manipulation',
   'Cosmic Manipulation': 'https://superpower.fandom.com/wiki/Cosmic_Manipulation',
+  'Pocket Space': 'https://superpower.fandom.com/wiki/Dimensional_Storage',
+  'Stretchy Body': 'https://superpower.fandom.com/wiki/Elasticity',
+  'Tough Body': 'https://superpower.fandom.com/wiki/Enhanced_Durability',
+  'Power Channel': 'https://superpower.fandom.com/wiki/Power_Absorption',
+  'Blueprint Mind': 'https://superpower.fandom.com/wiki/Enhanced_Intelligence',
+  'Shrink Down': 'https://superpower.fandom.com/wiki/Size_Manipulation',
+  'Heavy Lift': 'https://superpower.fandom.com/wiki/Enhanced_Strength',
+  'Toxin Soak': 'https://superpower.fandom.com/wiki/Poison_Immunity',
+  'Heat Resist': 'https://superpower.fandom.com/wiki/Heat_Immunity',
+  'Calm Presence': 'https://superpower.fandom.com/wiki/Emotional_Manipulation',
+  'Luminescence': 'https://superpower.fandom.com/wiki/Light_Manipulation',
+  'Scout Sense': 'https://superpower.fandom.com/wiki/Enhanced_Senses',
+  'Wind Cutter': 'https://superpower.fandom.com/wiki/Wind_Manipulation',
+  'Speed Strike': 'https://superpower.fandom.com/wiki/Enhanced_Speed',
+  'Harden Touch': 'https://superpower.fandom.com/wiki/Matter_Manipulation',
+  'Natural Pilot': 'https://superpower.fandom.com/wiki/Enhanced_Reflexes',
+  'Limited Calokinesis': 'https://superpower.fandom.com/wiki/Pyrokinesis',
+  'Shield Summoning': 'https://superpower.fandom.com/wiki/Force_Field_Generation',
+  'Hydrokinetic Constructs': 'https://superpower.fandom.com/wiki/Hydrokinesis',
+  'Commanding Presence': 'https://superpower.fandom.com/wiki/Charisma',
+  'Hydrokinetic Combat': 'https://superpower.fandom.com/wiki/Hydrokinesis',
+  'Fairy Wings': 'https://superpower.fandom.com/wiki/Flight',
+  'Limited ESP': 'https://superpower.fandom.com/wiki/Extrasensory_Perception',
+  'Bubble Craft': 'https://superpower.fandom.com/wiki/Bubble_Manipulation',
+  'Oposkinetic Combat': 'https://superpower.fandom.com/wiki/Animal_Mimicry',
+  'Weapon Mastery': 'https://superpower.fandom.com/wiki/Weapon_Proficiency',
+  'Restoration': 'https://superpower.fandom.com/wiki/Healing',
+  'Veritas Sense': 'https://superpower.fandom.com/wiki/Truth_Sensing',
+  'Resonating Voice': 'https://superpower.fandom.com/wiki/Sound_Manipulation',
+  'Power Boost': 'https://superpower.fandom.com/wiki/Power_Augmentation',
+  'Terrifying Aura': 'https://superpower.fandom.com/wiki/Fear_Inducement',
+  'Holo Design': 'https://superpower.fandom.com/wiki/Holographic_Projection',
+  'Commanding Aura': 'https://superpower.fandom.com/wiki/Charisma',
+  'Silence': 'https://superpower.fandom.com/wiki/Sound_Manipulation',
+  'Levitation': 'https://superpower.fandom.com/wiki/Levitation',
+  'Essence Chemistry': 'https://superpower.fandom.com/wiki/Chemistry_Manipulation',
+  'Limited Cryokinesis': 'https://superpower.fandom.com/wiki/Cryokinesis',
+  'Bond Reading': 'https://superpower.fandom.com/wiki/Empathy',
+  'Ground and Anchor': 'https://superpower.fandom.com/wiki/Enhanced_Durability',
+  'Electrokinetic Transfer': 'https://superpower.fandom.com/wiki/Electricity_Manipulation',
+  'Plant Generation & Shaping': 'https://superpower.fandom.com/wiki/Chlorokinesis',
+  'Barrier Summoning': 'https://superpower.fandom.com/wiki/Force_Field_Generation',
+  'Set the Scene': 'https://superpower.fandom.com/wiki/Illusion_Creation',
+  'Scaled Hide': 'https://superpower.fandom.com/wiki/Enhanced_Durability',
+  'Persuasive Talking': 'https://superpower.fandom.com/wiki/Persuasion',
+  'Perfect Vocabulary': 'https://superpower.fandom.com/wiki/Enhanced_Intelligence',
+  'Perfect Palate': 'https://superpower.fandom.com/wiki/Enhanced_Senses',
+  'Ice Carving': 'https://superpower.fandom.com/wiki/Cryokinesis',
+  'Frost Terraform': 'https://superpower.fandom.com/wiki/Cryokinesis',
+  'Cat-like Reflexes': 'https://superpower.fandom.com/wiki/Enhanced_Reflexes',
+  'Contortionist': 'https://superpower.fandom.com/wiki/Flexibility',
+  'Sharp Case': 'https://superpower.fandom.com/wiki/Enhanced_Intelligence',
+  'Healing Essence': 'https://superpower.fandom.com/wiki/Healing',
+  'Site Sense': 'https://superpower.fandom.com/wiki/Enhanced_Senses',
+  'Wide Watch': 'https://superpower.fandom.com/wiki/Enhanced_Vision',
+  'Endless Library': 'https://superpower.fandom.com/wiki/Knowledge_Manipulation',
+  'Containment Field': 'https://superpower.fandom.com/wiki/Force_Field_Generation',
+  'Heat Proof': 'https://superpower.fandom.com/wiki/Heat_Immunity',
+  'Upgrade & Merge': 'https://superpower.fandom.com/wiki/Technopathy',
+  'Close Study': 'https://superpower.fandom.com/wiki/Enhanced_Intelligence',
+  'Tall and Tough': 'https://superpower.fandom.com/wiki/Enhanced_Durability',
+  'Purple Flame Generation': 'https://superpower.fandom.com/wiki/Pyrokinesis',
+  'Limited Plant Generation & Shaping': 'https://superpower.fandom.com/wiki/Chlorokinesis',
+  'Cool Waters': 'https://superpower.fandom.com/wiki/Hydrokinesis',
+  'Sand Play': 'https://superpower.fandom.com/wiki/Geokinesis',
+  'Oxidation Inducement': 'https://superpower.fandom.com/wiki/Matter_Manipulation',
+  'Limited Sleep Induction': 'https://superpower.fandom.com/wiki/Sleep_Inducement',
+  'Limited Technokinesis': 'https://superpower.fandom.com/wiki/Technopathy',
+  'Vibration Generation': 'https://superpower.fandom.com/wiki/Vibration_Manipulation',
+  'Echolocation': 'https://superpower.fandom.com/wiki/Enhanced_Senses',
+  'Tech Speak': 'https://superpower.fandom.com/wiki/Technopathy',
+  'Gold Control': 'https://superpower.fandom.com/wiki/Metal_Manipulation',
+  'Pure Complexion': 'https://superpower.fandom.com/wiki/Enhanced_Beauty',
+  'Structural Analysis': 'https://superpower.fandom.com/wiki/Enhanced_Intelligence',
+  'Push Broadcast': 'https://superpower.fandom.com/wiki/Telepathy',
+  'Memory Wipe': 'https://superpower.fandom.com/wiki/Memory_Manipulation',
+  'Personal Darkness': 'https://superpower.fandom.com/wiki/Darkness_Manipulation',
+  'Deep Insight': 'https://superpower.fandom.com/wiki/Clairvoyance',
+  'Fire Power': 'https://superpower.fandom.com/wiki/Pyrokinesis',
+  'Plasma Control': 'https://superpower.fandom.com/wiki/Plasma_Manipulation',
+  'Lava Shaping': 'https://superpower.fandom.com/wiki/Magma_Manipulation',
+  'Big Jump': 'https://superpower.fandom.com/wiki/Enhanced_Jump',
+  'Fireball': 'https://superpower.fandom.com/wiki/Pyrokinesis',
+  'Fire Generation': 'https://superpower.fandom.com/wiki/Pyrokinesis',
+  'Hypnotic Voice': 'https://superpower.fandom.com/wiki/Hypnosis',
+  'Serpent Shift': 'https://superpower.fandom.com/wiki/Shapeshifting',
+  'Crowd Pleaser': 'https://superpower.fandom.com/wiki/Charisma',
+  'Sub-Domain': 'https://superpower.fandom.com/wiki/Reality_Warping',
+  'Fragment': 'https://superpower.fandom.com/wiki/Duplication',
+  'Cartoon Physics': 'https://superpower.fandom.com/wiki/Reality_Warping',
+  'Heart to Heart': 'https://superpower.fandom.com/wiki/Empathy',
+  'Sturdy Frame': 'https://superpower.fandom.com/wiki/Enhanced_Durability',
+  'Ecological Empathy': 'https://superpower.fandom.com/wiki/Empathy',
+  'Fear Proof Induction': 'https://superpower.fandom.com/wiki/Fear_Manipulation',
+  'Ear to the Ground': 'https://superpower.fandom.com/wiki/Enhanced_Hearing',
+  'Heat Sense': 'https://superpower.fandom.com/wiki/Thermal_Sense',
+  'Warm Touch': 'https://superpower.fandom.com/wiki/Heat_Manipulation',
+  'Liquidation': 'https://superpower.fandom.com/wiki/Liquid_Manipulation',
+  'Steady Hands': 'https://superpower.fandom.com/wiki/Enhanced_Dexterity',
+  'Shockwave Pulse': 'https://superpower.fandom.com/wiki/Shockwave_Generation',
+  'Melikinesis': 'https://superpower.fandom.com/wiki/Animal_Mimicry',
+  'Cryokinesis': 'https://superpower.fandom.com/wiki/Cryokinesis',
+  'Cryophrenia': 'https://superpower.fandom.com/wiki/Cryokinesis',
+  'Minor Technopathy': 'https://superpower.fandom.com/wiki/Technopathy',
+  'Technotravel': 'https://superpower.fandom.com/wiki/Teleportation',
+  'Technopathy': 'https://superpower.fandom.com/wiki/Technopathy',
+  'Full Read': 'https://superpower.fandom.com/wiki/Telepathy',
+  'Vision Cast': 'https://superpower.fandom.com/wiki/Clairvoyance',
+  'Voice Copy': 'https://superpower.fandom.com/wiki/Voice_Mimicry',
+  'Voice Steal': 'https://superpower.fandom.com/wiki/Voice_Manipulation',
+  'Gearshift': 'https://superpower.fandom.com/wiki/Enhanced_Speed',
+  'Elemental Affinity': 'https://superpower.fandom.com/wiki/Elemental_Manipulation',
+  'Holo-Pearls': 'https://superpower.fandom.com/wiki/Duplication',
+  'Holo-Sphene': 'https://superpower.fandom.com/wiki/Holographic_Projection',
+  'Holo-Moonstone': 'https://superpower.fandom.com/wiki/Holographic_Projection',
+  'Holo-Rhodonite': 'https://superpower.fandom.com/wiki/Holographic_Projection',
+  'Holo-Sardonyx': 'https://superpower.fandom.com/wiki/Holographic_Projection',
+  'Holo-Tanzanite': 'https://superpower.fandom.com/wiki/Holographic_Projection',
+  'Atmokinesis': 'https://superpower.fandom.com/wiki/Atmokinesis',
+  'Monstrous Howl': 'https://superpower.fandom.com/wiki/Sonic_Scream',
+  'Technological Weaponry Crafting': 'https://superpower.fandom.com/wiki/Weapon_Creation',
 };
 
 const customAbilitySuggestions = {
@@ -156,6 +277,56 @@ const customAbilitySuggestions = {
     description: 'The combination of seeing current events and future possibilities, allowing for near-complete awareness.',
     wikiLink: 'https://superpower.fandom.com/wiki/Omniscience'
   },
+  'Water Control + Earth Shaping': {
+    name: 'Mud Manipulation',
+    description: 'Control over mud and sediment by combining water and earth manipulation.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Mud_Manipulation'
+  },
+  'Fire Control + Earth Shaping': {
+    name: 'Magma Manipulation',
+    description: 'The ability to create and control lava by combining fire with earth manipulation.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Magma_Manipulation'
+  },
+  'Water Control + Wind Control': {
+    name: 'Storm Manipulation',
+    description: 'Control over weather phenomena by combining water and wind manipulation.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Weather_Manipulation'
+  },
+  'Pocket Space + Holographic Projection': {
+    name: 'Dimensional Storage',
+    description: 'Enhanced spatial manipulation combining pocket dimensions with holographic interfaces.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Dimensional_Storage'
+  },
+  'Metal Control + Electricity Generation': {
+    name: 'Technopathy',
+    description: 'The ability to mentally interface with and control electronic systems.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Technopathy'
+  },
+  'Tall and Tough + Fire Control': {
+    name: 'Durable Pyrokinesis',
+    description: 'Enhanced fire abilities combined with increased durability for close-range combat.',
+    wikiLink: null
+  },
+  'Clairvoyance + Holographic Projection': {
+    name: 'Remote Projection',
+    description: 'The ability to project one\'s consciousness and holographic form to distant locations.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Remote_Viewing'
+  },
+  'Water Control + Clairvoyance': {
+    name: 'Hydro-Scrying',
+    description: 'The ability to see distant events or locations through water.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Divination'
+  },
+  'Shield Summoning + Healing': {
+    name: 'Protective Healing',
+    description: 'Abilities that can both protect and heal simultaneously.',
+    wikiLink: null
+  },
+  'Earth Shaping + Plant Control': {
+    name: 'Chlorokinesis',
+    description: 'Enhanced plant manipulation through earth control.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Plant_Manipulation'
+  },
 };
 
 const $ = id => document.getElementById(id); const factionEl = $('faction'), gemEl = $('gem'), prismEl = $('prism'), eraEl = $('era'), cutEl = $('cut'), fusionAEl = $('fusion-a'), fusionBEl = $('fusion-b');
@@ -179,8 +350,15 @@ function populateFusionSelect(el, selected) { const baseRecords = [...gems, ...f
 function showFusionAbilities(target, record) { if (!record) return; const abilities = record.abilities || []; const hidden = record.hidden || []; const allAbilities = [...abilities, ...hidden.map(ability => `Hidden: ${ability}`)]; target.replaceChildren(...allAbilities.map(text => { const item = document.createElement('li'); item.textContent = text; return item; })); }
 function generateAbilitySuggestions(first, second) {
   const suggestions = [];
-  const firstAbilities = first.abilities || [];
-  const secondAbilities = second.abilities || [];
+  
+  // Split abilities by semicolons to handle multiple abilities in one string
+  const splitAbilities = (abilities) => {
+    if (!abilities) return [];
+    return abilities.flatMap(a => a.split(';').map(ab => ab.trim()));
+  };
+  
+  const firstAbilities = splitAbilities(first.abilities);
+  const secondAbilities = splitAbilities(second.abilities);
   
   // Check for custom combinations
   for (const firstAbility of firstAbilities) {
