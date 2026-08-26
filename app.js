@@ -40,10 +40,17 @@ const gems = [
 
 const quartz = [
   ['Amethyst', [2,2,-1,0,-1,1], 'Plasma Generation'], ['Aventurine', [1,-1,1,0,0,2], 'Plant Generation & Shaping'], ['Blue Quartz', [0,-1,-1,1,0,3], 'Minor Hydrokinesis; Minor Cryokinesis'], ['Carnelian', [1,1,0,0,0,-2], 'Grit Skin'], ['Cherry Quartz', [-2,-1,-1,0,5,-1], 'Sharp Eye'], ['Citrine', [-2,1,-1,0,0,2], 'Citric Secretion'], ['Jasper', [4,2,2,-1,-1,-2], 'Stoneguard'], ['Milky Quartz', [2,-1,1,-2,0,0], 'Milky Mist'], ['Prasiolite', [0,-1,0,0,2,1], 'Assembly'], ['Rose Quartz', [1,-1,0,0,0,1], 'Empathy'], ['Smoky Quartz', [2,0,1,-1,0,0], 'Vibrokinesis'], ['Zebra Jasper', [4,4,0,0,-3,-2], 'Ergokinetic Combat; Herd Bond']
-].map(([name, values, ability]) => ({ name, faction: 'United Frontier', modifier: stat(...values), abilities: [ability] }));
+].map(([name, values, ability]) => ({ name, faction: 'United Frontier', statModifier: { HP: values[0], ATK: values[1], DEF: values[2], SPD: values[3], INT: values[4], MAG: values[5] }, abilities: [ability] }));
 
 const frontier = [
-  { name: 'Celestine', stats: stat(34,3,7,5,9,11), abilities: ['Advanced Restoration; Wingless Flight'] }, { name: 'Almandine', stats: stat(28,9,4,6,7,11), abilities: ['Psionics'], hidden: ['Small Flame'] }, { name: 'Yellow Tourmaline', stats: stat(28,5,4,5,7,4), abilities: ["Appraiser's Eye"], hidden: ['Golden Tongue'], height: "5'8\"" }, { name: 'Seraphinite', stats: stat(36,5,7,6,9,11), abilities: ['Perfect Restoration; Flight'], height: "7'4\"" }, { name: 'Iolite', stats: stat(28,3,4,5,9,3), abilities: ['Clarity Voice'], hidden: ['Memory Anchors'], height: "5'7\"" }, { name: 'Astrophyllite', stats: stat(28,3,4,5,8,4), abilities: ['Path Sense'], hidden: ['Serene Presence'], height: "5'9\"" }, { name: 'Labradorite', stats: stat(28,3,4,5,7,5), abilities: ['Record Keeper; Hydroportation'], height: "5'10\"" }, { name: 'Clear Quartz', stats: stat(30,6,5,5,5,3), abilities: ['Prism'], height: "8'0\"" }
+  { name: 'Celestine', stats: stat(34,3,7,5,9,11), abilities: ['Advanced Restoration; Wingless Flight'] }, 
+  { name: 'Almandine', stats: stat(28,9,4,6,7,11), abilities: ['Psionics'], hidden: ['Small Flame'], height: "5'8\"" }, 
+  { name: 'Yellow Tourmaline', stats: stat(28,5,4,5,7,4), abilities: ["Appraiser's Eye"], hidden: ['Golden Tongue'], height: "5'8\"" }, 
+  { name: 'Seraphinite', stats: stat(36,5,7,6,9,11), abilities: ['Perfect Restoration; Flight'], height: "7'4\"" }, 
+  { name: 'Iolite', stats: stat(28,3,4,5,9,3), abilities: ['Clarity Voice'], hidden: ['Memory Anchors'], height: "5'7\"" }, 
+  { name: 'Astrophyllite', stats: stat(28,3,4,5,8,4), abilities: ['Path Sense'], hidden: ['Serene Presence'], height: "5'9\"" }, 
+  { name: 'Labradorite', stats: stat(28,3,4,5,7,5), abilities: ['Record Keeper; Hydroportation'], height: "5'10\"" }, 
+  { name: 'Clear Quartz', stats: stat(30,6,5,5,5,3), abilities: ['Prism'], height: "8'0\"" }
 ].map(x => ({ ...x, faction: 'United Frontier' }));
 
 const modifiers = [
@@ -224,6 +231,34 @@ const superpowersWiki = {
   'Atmokinesis': 'https://superpower.fandom.com/wiki/Atmokinesis',
   'Monstrous Howl': 'https://superpower.fandom.com/wiki/Sonic_Scream',
   'Technological Weaponry Crafting': 'https://superpower.fandom.com/wiki/Weapon_Creation',
+  // United Frontier Abilities
+  'Advanced Restoration': 'https://superpower.fandom.com/wiki/Healing',
+  'Wingless Flight': 'https://superpower.fandom.com/wiki/Flight',
+  'Psionics': 'https://superpower.fandom.com/wiki/Telekinesis',
+  'Small Flame': 'https://superpower.fandom.com/wiki/Pyrokinesis',
+  "Appraiser's Eye": 'https://superpower.fandom.com/wiki/Enhanced_Perception',
+  'Golden Tongue': 'https://superpower.fandom.com/wiki/Persuasion',
+  'Perfect Restoration': 'https://superpower.fandom.com/wiki/Healing',
+  'Clarity Voice': 'https://superpower.fandom.com/wiki/Telepathy',
+  'Memory Anchors': 'https://superpower.fandom.com/wiki/Memory_Manipulation',
+  'Path Sense': 'https://superpower.fandom.com/wiki/Intuition',
+  'Serene Presence': 'https://superpower.fandom.com/wiki/Emotional_Manipulation',
+  'Record Keeper': 'https://superpower.fandom.com/wiki/Eidetic_Memory',
+  'Hydroportation': 'https://superpower.fandom.com/wiki/Teleportation',
+  'Prism': 'https://superpower.fandom.com/wiki/Transformation',
+  'Plasma Generation': 'https://superpower.fandom.com/wiki/Plasma_Manipulation',
+  'Plant Generation & Shaping': 'https://superpower.fandom.com/wiki/Plant_Manipulation',
+  'Minor Hydrokinesis': 'https://superpower.fandom.com/wiki/Hydrokinesis',
+  'Minor Cryokinesis': 'https://superpower.fandom.com/wiki/Cryokinesis',
+  'Grit Skin': 'https://superpower.fandom.com/wiki/Enhanced_Durability',
+  'Sharp Eye': 'https://superpower.fandom.com/wiki/Enhanced_Vision',
+  'Citric Secretion': 'https://superpower.fandom.com/wiki/Acid_Manipulation',
+  'Stoneguard': 'https://superpower.fandom.com/wiki/Enhanced_Durability',
+  'Milky Mist': 'https://superpower.fandom.com/wiki/Sleep_Inducement',
+  'Assembly': 'https://superpower.fandom.com/wiki/Enhanced_Intelligence',
+  'Vibrokinesis': 'https://superpower.fandom.com/wiki/Vibration_Manipulation',
+  'Ergokinetic Combat': 'https://superpower.fandom.com/wiki/Kinetic_Energy_Manipulation',
+  'Herd Bond': 'https://superpower.fandom.com/wiki/Empathy',
 };
 
 const customAbilitySuggestions = {
@@ -327,6 +362,93 @@ const customAbilitySuggestions = {
     description: 'Enhanced plant manipulation through earth control.',
     wikiLink: 'https://superpower.fandom.com/wiki/Plant_Manipulation'
   },
+  // United Frontier Specific Combinations
+  'Advanced Restoration + Wingless Flight': {
+    name: 'Aerial Healing',
+    description: 'The ability to heal while flying, allowing for rapid medical response across battlefields.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Healing'
+  },
+  'Psionics + Small Flame': {
+    name: 'Psychic Pyrokinesis',
+    description: 'Combined telekinetic and fire abilities for controlled rescue and combat operations.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Pyrokinesis'
+  },
+  'Appraiser\'s Eye + Golden Tongue': {
+    name: 'Master Negotiation',
+    description: 'Perfect combination of value assessment and persuasive abilities for optimal trade outcomes.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Charisma'
+  },
+  'Perfect Restoration + Flight': {
+    name: 'Divine Healing Flight',
+    description: 'Ultimate healing capabilities combined with aerial mobility for medical emergencies.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Healing'
+  },
+  'Clarity Voice + Memory Anchors': {
+    name: 'Educational Mastery',
+    description: 'Perfect teaching abilities that ensure lessons are both understood and retained.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Telepathy'
+  },
+  'Path Sense + Serene Presence': {
+    name: 'Guidance Aura',
+    description: 'Career guidance combined with calming presence for optimal life decisions.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Intuition'
+  },
+  'Record Keeper + Hydroportation': {
+    name: 'Chronicle Travel',
+    description: 'Ability to access records from anywhere through water-based teleportation.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Teleportation'
+  },
+  'Plasma Generation + Plant Generation & Shaping': {
+    name: 'Bio-Plasma Engineering',
+    description: 'Combination of metalworking and plant abilities for agricultural construction.',
+    wikiLink: null
+  },
+  'Minor Hydrokinesis + Minor Cryokinesis': {
+    name: 'Ice-Water Mastery',
+    description: 'Complete control over water in both liquid and solid states.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Cryokinesis'
+  },
+  'Grit Skin + Stoneguard': {
+    name: 'Ultimate Durability',
+    description: 'Maximum resistance to both heat and physical damage.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Enhanced_Durability'
+  },
+  'Sharp Eye + Assembly': {
+    name: 'Perfect Construction',
+    description: 'Flaw detection combined with instinctive assembly for perfect builds.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Enhanced_Intelligence'
+  },
+  'Empathy + Milky Mist': {
+    name: 'Dream Healing',
+    description: 'Emotional sensing combined with sleep induction for therapeutic rest.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Empathy'
+  },
+  'Vibrokinesis + Ergokinetic Combat': {
+    name: 'Vibration Combat',
+    description: 'Kinetic energy channeling combined with vibration control for devastating attacks.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Vibration_Manipulation'
+  },
+  // Cross-Faction Combinations
+  'Water Control + Minor Hydrokinesis': {
+    name: 'Hydrokinesis Mastery',
+    description: 'Combined large-scale and fine water control abilities.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Hydrokinesis'
+  },
+  'Tall and Tough + Stoneguard': {
+    name: 'Fortress Form',
+    description: 'Maximum physical durability and toughness for defensive combat.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Enhanced_Durability'
+  },
+  'Commanding Presence + Path Sense': {
+    name: 'Leadership Guidance',
+    description: 'Natural authority combined with career guidance for team leadership.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Charisma'
+  },
+  'Healing Essence + Advanced Restoration': {
+    name: 'Master Healing',
+    description: 'Combination of basic and advanced healing for comprehensive medical care.',
+    wikiLink: 'https://superpower.fandom.com/wiki/Healing'
+  },
 };
 
 const $ = id => document.getElementById(id); const factionEl = $('faction'), gemEl = $('gem'), prismEl = $('prism'), eraEl = $('era'), cutEl = $('cut'), fusionAEl = $('fusion-a'), fusionBEl = $('fusion-b');
@@ -344,9 +466,9 @@ function totalExpForLevel(level) { let total = 0; for (let current = 2; current 
 function expToNextLevel(level) { return level >= 30 ? null : 100 + (level - 1) * 25; }
 function refreshGems() { const selected = gemEl.value; const list = [...gems, ...frontier].filter(g => g.faction === factionEl.value).sort((a,b) => a.name.localeCompare(b.name)); choices(gemEl, list, g => g.name); if (list.some(g => g.name === selected)) gemEl.value = selected; refresh(); }
 function fusionId(record) { return `${record.faction}|${record.name}`; }
-function fusionComponent(el) { const value = el.value; let record = [...gems, ...frontier].find(r => fusionId(r) === value); if (!record) { const quartzSubtypes = quartz.map(q => ({ name: q.name, faction: 'United Frontier', stats: combine(frontier.find(f => f.name === 'Clear Quartz').stats, q.modifier), abilities: q.abilities, isQuartzSubtype: true })); record = quartzSubtypes.find(r => fusionId(r) === value); } return record; }
+function fusionComponent(el) { const value = el.value; let record = [...gems, ...frontier].find(r => fusionId(r) === value); if (!record) { const ufQuartzSubtypes = quartz.map(q => ({ name: q.name, faction: 'United Frontier', stats: combine(frontier.find(f => f.name === 'Clear Quartz').stats, q.statModifier), abilities: q.abilities, isQuartzSubtype: true, statModifier: q.statModifier })); record = ufQuartzSubtypes.find(r => fusionId(r) === value); } return record; }
 function listAbilities(record) { const abilities = record.abilities || []; const hidden = record.hidden || []; return [...abilities, ...hidden.map(ability => `Hidden: ${ability}`)]; }
-function populateFusionSelect(el, selected) { const baseRecords = [...gems, ...frontier].filter(record => !record.fusion); const quartzSubtypes = quartz.map(q => ({ name: q.name, faction: 'United Frontier', stats: combine(frontier.find(f => f.name === 'Clear Quartz').stats, q.modifier), abilities: q.abilities, isQuartzSubtype: true })); const records = [...baseRecords, ...quartzSubtypes].sort((a, b) => `${a.faction}:${a.name}`.localeCompare(`${b.faction}:${b.name}`)); el.replaceChildren(...records.map(record => { const node = option(fusionId(record), `${record.faction}: ${record.name}${record.isQuartzSubtype ? ' (Quartz subtype)' : ''}`); return node; })); if (records.some(record => fusionId(record) === selected)) el.value = selected; }
+function populateFusionSelect(el, selected) { const baseRecords = [...gems, ...frontier].filter(record => !record.fusion); const ufQuartzSubtypes = quartz.map(q => ({ name: q.name, faction: 'United Frontier', stats: combine(frontier.find(f => f.name === 'Clear Quartz').stats, q.statModifier), abilities: q.abilities, isQuartzSubtype: true, statModifier: q.statModifier })); const records = [...baseRecords, ...ufQuartzSubtypes].sort((a, b) => `${a.faction}:${a.name}`.localeCompare(`${b.faction}:${b.name}`)); el.replaceChildren(...records.map(record => { const node = option(fusionId(record), `${record.faction}: ${record.name}${record.isQuartzSubtype ? ' (Quartz subtype)' : ''}`); return node; })); if (records.some(record => fusionId(record) === selected)) el.value = selected; }
 function showFusionAbilities(target, record) { if (!record) return; const abilities = record.abilities || []; const hidden = record.hidden || []; const allAbilities = [...abilities, ...hidden.map(ability => `Hidden: ${ability}`)]; target.replaceChildren(...allAbilities.map(text => { const item = document.createElement('li'); item.textContent = text; return item; })); }
 function generateAbilitySuggestions(first, second) {
   const suggestions = [];
@@ -415,11 +537,11 @@ function refresh() {
   const prismActive = record.name === 'Clear Quartz' && record.faction === 'United Frontier'; $('prism-step').classList.toggle('hidden', !prismActive);
   const modifier = modifiers.find(m => m.name === eraEl.value) || modifiers[0];
   const rank = rankFor(record); let base = record.stats; let inherited = [];
-  if (prismActive && prismEl.value !== 'Unshifted') { const shift = quartz.find(q => q.name === prismEl.value); base = combine(base, shift.modifier); inherited = shift.abilities; }
+  if (prismActive && prismEl.value !== 'Unshifted') { const shift = quartz.find(q => q.name === prismEl.value); base = combine(base, shift.statModifier); inherited = shift.abilities; }
   const cut = cuts[cutEl.value]; const polishAllowed = record.kind === 'Metal'; const cutAllowed = record.kind !== 'Metal';
   if (cutEl.value === 'Perfect Polish' && !polishAllowed) cutEl.value = 'Perfect Cut'; if (cutEl.value === 'Perfect Cut' && !cutAllowed) cutEl.value = 'Perfect Polish';
   const level = Math.min(30, Math.max(1, Number.parseInt($('level').value, 10) || 1)); $('level').value = level;
-  const cutData = cuts[cutEl.value]; const bonus = jobBonus(rank, cutEl.value); const growth = levelGrowth(level, record.classification); const final = combine(base, modifier.stats, cutData.stats, bonus, growth); const changes = combine(modifier.stats, cutData.stats, bonus, growth, prismActive && prismEl.value !== 'Unshifted' ? quartz.find(q => q.name === prismEl.value).modifier : zero);
+  const cutData = cuts[cutEl.value]; const bonus = jobBonus(rank, cutEl.value); const growth = levelGrowth(level, record.classification); const final = combine(base, modifier.stats, cutData.stats, bonus, growth); const changes = combine(modifier.stats, cutData.stats, bonus, growth, prismActive && prismEl.value !== 'Unshifted' ? quartz.find(q => q.name === prismEl.value).statModifier : zero);
   $('result-name').textContent = prismActive && prismEl.value !== 'Unshifted' ? prismEl.value : record.name; $('rank').textContent = rank; $('rank-label').textContent = record.fusion ? 'Threat Level' : 'Rank'; $('height').textContent = heightFor(record); $('result-level').textContent = `${level} / 30`; $('next-exp').textContent = expToNextLevel(level) === null ? 'Level cap reached' : expToNextLevel(level).toLocaleString(); $('total-exp').textContent = totalExpForLevel(level).toLocaleString();
   $('badges').replaceChildren(...[record.faction, ...(record.tags || []), modifier.unique ? 'Unique modifier' : ''].filter(Boolean).map(x => { const b = document.createElement('span'); b.textContent = x; return b; }));
   $('stats').replaceChildren(...S.map(key => { const div = document.createElement('div'); div.className = 'stat'; const delta = changes[key]; div.innerHTML = record.fusion ? `<span>${key}</span><strong>?</strong><div class="change">Component-derived</div>` : `<span>${key}</span><strong>${Math.max(0, final[key])}</strong><div class="change">${delta ? `${delta > 0 ? '+' : ''}${delta} modifier` : 'Base value'}</div>`; return div; }));
