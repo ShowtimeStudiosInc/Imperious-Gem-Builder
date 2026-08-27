@@ -759,6 +759,10 @@ factionEl.addEventListener('change', refreshGems); [gemEl, prismEl, eraEl, cutEl
 refreshGems();
 fusionAEl.addEventListener('change', refreshFusion); fusionBEl.addEventListener('change', refreshFusion); initialiseFusionTool();
 
-// Ability Checker event listeners
-$('ability-search-btn').addEventListener('click', checkAbilityOverlap);
-$('ability-search-input').addEventListener('input', checkAbilityOverlap);
+// Ability Checker event listeners - wrapped in DOMContentLoaded to ensure elements exist
+document.addEventListener('DOMContentLoaded', () => {
+  const searchBtn = $('ability-search-btn');
+  const searchInput = $('ability-search-input');
+  if (searchBtn) searchBtn.addEventListener('click', checkAbilityOverlap);
+  if (searchInput) searchInput.addEventListener('input', checkAbilityOverlap);
+});
