@@ -136,6 +136,98 @@
           <p class="field-note">Enter an ability name to check for overlaps with existing gems.</p>
         </div>
       </section>
+
+      <section class="result facet-cut-generator" aria-label="Facet and cut generator">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">CODE GENERATOR</p>
+            <h2>Facet & Cut Generator</h2>
+            <p class="lede">Generate facet and cut codes based on Diamond, kindergarten, social standing, and ATK stat.</p>
+          </div>
+        </div>
+        
+        <div class="code-generator-inputs">
+          <div class="input-group">
+            <label for="diamond-select">Diamond</label>
+            <select id="diamond-select">
+              <option value="">Select Diamond</option>
+              <option value="Alpha Black Diamond">Alpha Black Diamond (0)</option>
+              <option value="Omega White Diamond">Omega White Diamond (0B)</option>
+              <option value="Theta Gold Diamond">Theta Gold Diamond (1)</option>
+              <option value="Metal-Society">Metal-Society (01)</option>
+              <option value="Epsilon Blue Diamond">Epsilon Blue Diamond (2)</option>
+              <option value="Nightshade Violet Diamond">Nightshade Violet Diamond (3)</option>
+              <option value="Maroon Red Diamond">Maroon Red Diamond (4)</option>
+              <option value="Emerald Green Diamond">Emerald Green Diamond (5)</option>
+              <option value="Saturn Light Diamond">Saturn Light Diamond (6)</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="kindergarten-input">Kindergarten Name</label>
+            <input id="kindergarten-input" type="text" placeholder="e.g., Beta Prime" />
+          </div>
+          
+          <div class="input-group">
+            <label for="social-standing-select">Social Standing</label>
+            <select id="social-standing-select">
+              <option value="">Select Social Standing</option>
+              <option value="5.2">5.2 Low Servant</option>
+              <option value="5.1">5.1 High Servant</option>
+              <option value="4.3">4.3 Service Trade</option>
+              <option value="4.2">4.2 Median Service Trade</option>
+              <option value="4.1">4.1 High Service Trade</option>
+              <option value="3.3">3.3 Low Militia</option>
+              <option value="3.2">3.2 Median Militia</option>
+              <option value="3.1">3.1 High Militia</option>
+              <option value="2.3">2.3 Low Authoritative</option>
+              <option value="2.2">2.2 Median Authoritative</option>
+              <option value="2.1">2.1 High Authoritative</option>
+              <option value="1.2">1.2 Transcendent</option>
+              <option value="United Frontier">United Frontier</option>
+              <option value="Titan">Titan</option>
+              <option value="Standard">Standard</option>
+              <option value="Elite">Elite</option>
+              <option value="Champion">Champion</option>
+              <option value="Minion">Minion</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="facet-random-letter">Facet Random Letter</label>
+            <input id="facet-random-letter" type="text" maxlength="1" placeholder="e.g., A" />
+          </div>
+          
+          <div class="input-group">
+            <label for="atk-stat-input">ATK Stat (Final)</label>
+            <input id="atk-stat-input" type="number" placeholder="e.g., 12" />
+          </div>
+          
+          <div class="input-group">
+            <label for="cut-random-letter">Cut Random Letter</label>
+            <input id="cut-random-letter" type="text" maxlength="1" placeholder="e.g., C" />
+          </div>
+        </div>
+        
+        <button id="generate-codes-btn" class="generate-btn">Generate Codes</button>
+        
+        <div class="code-results">
+          <div class="code-result-item">
+            <label>Facet Code:</label>
+            <div class="code-display">
+              <span id="facet-result">---</span>
+              <button class="copy-btn" data-target="facet-result">Copy</button>
+            </div>
+          </div>
+          <div class="code-result-item">
+            <label>Cut Code:</label>
+            <div class="code-display">
+              <span id="cut-result">---</span>
+              <button class="copy-btn" data-target="cut-result">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="app.js"></script>
   </body>

@@ -765,4 +765,93 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = $('ability-search-input');
   if (searchBtn) searchBtn.addEventListener('click', checkAbilityOverlap);
   if (searchInput) searchInput.addEventListener('input', checkAbilityOverlap);
+  
+  // Facet & Cut Generator event listeners
+  const generateBtn = $('generate-codes-btn');
+  if (generateBtn) generateBtn.addEventListener('click', generateCodes);
+  
+  // Copy button listeners
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const targetElement = $(targetId);
+      if (targetElement) {
+        copyToClipboard(targetElement.textContent);
+      }
+    });
+  });
 });
+
+// Diamond mapping for Facet codes
+const diamondCodes = {
+  'Alpha Black Diamond': '0',
+  'Omega White Diamond': '0B',
+  'Theta Gold Diamond': '1',
+  'Metal-Society': '01',
+  'Epsilon Blue Diamond': '2',
+  'Nightshade Violet Diamond': '3',
+  'Maroon Red Diamond': '4',
+  'Emerald Green Diamond': '5',
+  'Saturn Light Diamond': '6'
+};
+
+// Social standing mapping (rank without decimal)
+const socialStandingMap = {
+  '5.2': '5',
+  '5.1': '5',
+  '4.3': '4',
+  '4.2': '4',
+  '4.1': '4',
+  '3.3': '3',
+  '3.2': '3',
+  '3.1': '3',
+  '2.3': '2',
+  '2.2': '2',
+  '2.1': '2',
+  '1.2': '1',
+  'United Frontier': 'UF',
+  'Titan': 'T',
+  'Standard': 'S',
+  'Elite': 'E',
+  'Champion': 'C',
+  'Minion': 'M'
+};
+
+// Facet & Cut Generator functions
+function generateFacetCode(diamond, kindergarten, socialStanding, randomLetter) {
+  const diamondCode = diamondCodes[diamond] || '?';
+  const kindergartenLetter = kindergarten.charAt(0).toUpperCase() || '?';
+  const socialCode = socialStandingMap[socialStanding] || socialStanding.charAt(0) || '?';
+  const randomFacetLetter = randomLetter.toUpperCase() || '?';
+  
+  return `${diamondCode}${kindergartenLetter}${socialCode}${randomFacetLetter}`;
+}
+
+function generateCutCode(atkStat, randomLetter) {
+  const atkCode = atkStat.toString();
+  const cutCode = `${atkCode}X${randomLetter.toUpperCase()}`;
+  return cutCode;
+}
+
+function generateCodes() {
+  const diamond = $('diamond-select').value;
+  const kindergarten = $('kindergarten-input').value;
+  const socialStanding = $('social-standing-select').value;
+  const randomFacetLetter = $('facet-random-letter').value;
+  const randomCutLetter = $('cut-random-letter').value;
+  const atkStat = $('atk-stat-input').value;
+  
+  const facetCode = generateFacetCode(diamond, kindergarten, socialStanding, randomFacetLetter);
+  const cutCode = generateCutCode(atkStat, randomCutLetter);
+  
+  $('facet-result').textContent = facetCode;
+  $('cut-result').textContent = cutCode;
+}
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Copied to clipboard!');
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
