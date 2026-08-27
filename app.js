@@ -261,6 +261,180 @@ const superpowersWiki = {
   'Herd Bond': 'https://superpower.fandom.com/wiki/Empathy',
 };
 
+// Complete ability database extracted from gem profiles for overlap checking
+const abilityDatabase = [
+  // 5.2 Rank
+  { name: 'Body Heat', gem: 'Coal', rank: '5.2 Low Servant', description: 'Can warm up part of her body to give off light or heat' },
+  { name: 'Light Tools', gem: 'Richterite', rank: '5.2 Low Servant', description: 'Can make temporary tools or items out of glowing spectral light' },
+  { name: 'Fusion Boost', gem: 'Salt', rank: '5.2 Low Servant', description: 'When fusing with another gem, the fusion becomes stronger without changing gem type' },
+  
+  // 5.1 Rank
+  { name: 'Pocket Space', gem: 'Pearl', rank: '5.1 High Servant', description: 'Can tuck small items away into a Pocket space and pull them back out later' },
+  { name: 'Holographic Projection', gem: 'Pearl', rank: '5.1 High Servant', description: 'Can make harmless images of light appear' },
+  { name: 'Stretchy Body', gem: 'Spinel', rank: '5.1 High Servant', description: 'Can stretch, twist, and reshape body like elastic' },
+  { name: 'Bond Reading', gem: 'Watermelon Tourmaline', rank: '5.1 High Servant', description: 'Can sense emotional strain or harmony between two gems' },
+  { name: 'Heart to Heart', gem: 'Watermelon Tourmaline', rank: '5.1 High Servant', description: 'Can ease heightened emotions between two arguing gems' },
+  
+  // 4.3 Rank
+  { name: 'Heavy Lift', gem: 'Cavansite', rank: '4.3 Service Trade', description: 'Can carry loads up to ten times her own size' },
+  { name: 'Tough Body', gem: 'Iron', rank: '4.3 Service Trade', description: 'Can take hit after hit without going down' },
+  { name: 'Power Channel', gem: 'Copper', rank: '4.3 Service Trade', description: 'Can conduct and pass electricity through her body' },
+  { name: 'Blueprint Mind', gem: 'Bronze', rank: '4.3 Service Trade', description: 'Can picture and plan out building designs with ease' },
+  { name: 'Shrink Down', gem: 'Graphene', rank: '4.3 Service Trade', description: 'Can shrink body way down, small enough to fit into tight spots' },
+  { name: 'Ground and Anchor', gem: 'Brown Tourmaline', rank: '4.3 Service Trade', description: 'Can anchor a structure or teammate firmly to the ground' },
+  { name: 'Sturdy Frame', gem: 'Brown Tourmaline', rank: '4.3 Service Trade', description: 'Can work long hours on construction sites without wearing down' },
+  
+  // 4.2 Rank
+  { name: 'Water Control', gem: 'Lapis', rank: '4.2 Median Service Trade', description: 'Can move and shape large amounts of water' },
+  { name: 'Earth Shaping', gem: 'Malachite', rank: '4.2 Median Service Trade', description: 'Can control and shape dirt, stone, and rock' },
+  { name: 'Toxin Soak', gem: 'Malachite', rank: '4.2 Median Service Trade', description: 'Can pull toxic materials out of the air and ground' },
+  { name: 'Lava Generation & Shaping', gem: 'Yooperlite', rank: '4.2 Median Service Trade', description: 'Can call up and shape lava' },
+  { name: 'Fire Control', gem: 'Clinohumite', rank: '4.2 Median Service Trade', description: 'Can manipulate flames to clear out obstacles' },
+  { name: 'Heat Resist', gem: 'Clinohumite', rank: '4.2 Median Service Trade', description: 'Can handle extreme heat with ease' },
+  { name: 'Calm Presence', gem: 'Calcite', rank: '4.2 Median Service Trade', description: 'Gives off a soothing, gentle energy that puts wildlife at ease' },
+  { name: 'Metal Control', gem: 'Peridot', rank: '4.2 Median Service Trade', description: 'Can move and shape metal' },
+  { name: 'Electricity Generation', gem: 'Silver', rank: '4.2 Median Service Trade', description: 'Can make her own electricity' },
+  { name: 'Scout Sense', gem: 'Tektite', rank: '4.2 Median Service Trade', description: 'Has a sharp eye for spotting good sites for new colonies' },
+  { name: 'Quick Stop', gem: 'Tivcral', rank: '4.2 Median Service Trade', description: 'Can stop moving almost instantly' },
+  { name: 'Wind Cutter', gem: 'Tivcral', rank: '4.2 Median Service Trade', description: 'Ignores air resistance while moving' },
+  { name: 'Speed Strike', gem: 'Tivcral', rank: '4.2 Median Service Trade', description: 'Attacks deal damage equal to half her Speed stat' },
+  { name: 'Harden Touch', gem: 'Chromium', rank: '4.2 Median Service Trade', description: 'Can strengthen and reinforce anything she touches' },
+  { name: 'Magnetic Field', gem: 'Cobalt', rank: '4.2 Median Service Trade', description: 'Can create a magnetic pull around herself' },
+  { name: 'Natural Pilot', gem: 'Nephrite', rank: '4.2 Median Service Trade', description: 'Has a gift for flying and piloting' },
+  { name: 'Deep Insight', gem: 'Sunstone', rank: '4.2 Median Service Trade', description: 'Has a strong natural sense that helps give wise advice' },
+  { name: 'Fire Power', gem: 'Sunstone', rank: '4.2 Median Service Trade', description: 'Has strong fire abilities' },
+  { name: 'Plasma Control', gem: 'Goshenite', rank: '4.2 Median Service Trade', description: 'Can create, shape, and control plasma' },
+  { name: 'Full Read', gem: 'Goshenite', rank: '4.2 Median Service Trade', description: 'Can read the energy signatures of gems, tech, and structures' },
+  { name: 'Electrokinetic Transfer and Manipulation', gem: 'Blue Tourmaline', rank: '4.2 Median Service Trade', description: 'Can pull existing current out of one source and redirect it' },
+  { name: 'Plant Generation & Shaping', gem: 'Green Tourmaline', rank: '4.2 Median Service Trade', description: 'Can grow and shape flowers and greenery' },
+  { name: 'Barrier Summoning', gem: 'Black Tourmaline', rank: '4.2 Median Service Trade', description: 'Throws up an invisible barrier around one ally' },
+  { name: 'Fear Proof Induction', gem: 'Black Tourmaline', rank: '4.2 Median Service Trade', description: 'Nearby allies are more resistant to fear inducing abilities' },
+  { name: 'Set the Scene', gem: 'Pink Tourmaline', rank: '4.2 Median Service Trade', description: 'Can wrap a room in holographic decor' },
+  { name: 'Persuasive Talking', gem: 'Shattuckite', rank: '4.2 Median Service Trade', description: 'Uses rhetorical skill and direct dialogue to de-escalate tension' },
+  { name: 'Perfect Vocabulary', gem: 'Shattuckite', rank: '4.2 Median Service Trade', description: 'Possesses precise linguistic control' },
+  { name: 'Perfect Palate', gem: 'Chrysoberyl', rank: '4.2 Median Service Trade', description: 'Can taste and smell with incredible precision' },
+  { name: 'Warm Touch', gem: 'Chrysoberyl', rank: '4.2 Median Service Trade', description: 'Can heat hands enough to cook or warm food on contact' },
+  { name: 'Ice Carving', gem: 'Larimar', rank: '4.2 Median Service Trade', description: 'Can shape and control ice with fine precision' },
+  { name: 'Frost Terraform', gem: 'Larimar', rank: '4.2 Median Service Trade', description: 'Can spread and shape ice across a much larger area' },
+  
+  // 4.1 Rank
+  { name: 'Sharp Case', gem: 'Zircon', rank: '4.1 High Service Trade', description: 'Quick with words and logic, strong at building arguments' },
+  { name: 'Healing Essence', gem: 'Angelite', rank: '4.1 High Service Trade', description: 'Can mend wounds and injuries on other gems' },
+  { name: 'Site Sense', gem: 'Rutile', rank: '4.1 High Service Trade', description: 'Has a sharp instinct for reading a planet\'s environment' },
+  { name: 'Wide Watch', gem: 'Willemite', rank: '4.1 High Service Trade', description: 'Can pick up on activity and threats over a large area using radar' },
+  { name: 'Endless Library', gem: 'Opal', rank: '4.1 High Service Trade', description: 'Can hold an unlimited amount of knowledge in her mind' },
+  { name: 'Containment Field', gem: 'Steel', rank: '4.1 High Service Trade', description: 'Can create a barrier to safely hold and move an organic being' },
+  { name: 'Structural Analysis', gem: 'Bronze [Era 0-1]', rank: '4.1 High Service Trade', description: 'Can instantly spot weaknesses in any structure' },
+  { name: 'Heat Proof', gem: 'Tungsten', rank: '4.1 High Service Trade', description: 'Can work near volcanic activity without taking damage' },
+  { name: 'Upgrade & Merge', gem: 'Stellite', rank: '4.1 High Service Trade', description: 'Can create nanites and use them to upgrade weapons, tech, and vehicles' },
+  { name: 'Tech Speak', gem: 'Peridot [Era 0]', rank: '4.1 High Service Trade', description: 'Can talk to, control, and interact with technology' },
+  { name: 'Technotravel', gem: 'Peridot [Era 0]', rank: '4.1 High Service Trade', description: 'Can turn herself into electricity and travel through a power grid' },
+  { name: 'Close Study', gem: 'Serpentine', rank: '4.1 High Service Trade', description: 'Can examine tiny details in samples, materials, or gem essence' },
+  { name: 'Steady Hands', gem: 'Serpentine', rank: '4.1 High Service Trade', description: 'Can carry out delicate lab work without shaking or slipping' },
+  
+  // 3.3 Rank
+  { name: 'Luminescence', gem: 'Eucryptite', rank: '3.3 Low Militia', description: 'Can make body glow to see and be seen in almost any environment' },
+  { name: 'Limited Calokinesis', gem: 'Ruby', rank: '3.3 Low Militia', description: 'Has a small amount of heat control, enough to add a burn to strikes' },
+  { name: 'Dogfight Instinct', gem: 'Aragonite', rank: '3.3 Low Militia', description: 'Has sharp reflexes in space combat' },
+  
+  // 3.2 Rank (Quartz variants)
+  { name: 'Tall and Tough', gem: 'Quartz', rank: '3.2 Median Militia', description: 'Bigger and stronger than most gems' },
+  { name: 'Purple Flame Generation', gem: 'Amethyst', rank: '3.2 Median Militia', description: 'Can create a small amount of purple fire' },
+  { name: 'Limited Plant Generation & Shaping', gem: 'Aventurine', rank: '3.2 Median Militia', description: 'Can influence and grow plant life a small amount' },
+  { name: 'Cool Waters', gem: 'Blue Quartz', rank: '3.2 Median Militia', description: 'Has a light touch over water and ice' },
+  { name: 'Sand Play', gem: 'Carnelian', rank: '3.2 Median Militia', description: 'Has a light touch over sand' },
+  { name: 'Oxidation Inducement', gem: 'Citrine', rank: '3.2 Median Militia', description: 'Can speed up rust and corrosion on metal surfaces' },
+  { name: 'Limited Sleep Induction', gem: 'Milky Quartz', rank: '3.2 Median Militia', description: 'Can make others feel drowsy or fall asleep easier' },
+  { name: 'Limited Technokinesis', gem: 'Prasiolite', rank: '3.2 Median Militia', description: 'Has very limited control of technology' },
+  { name: 'Vibration Generation', gem: 'Smoky Quartz', rank: '3.2 Median Militia', description: 'Can create a small vibration or rumble' },
+  { name: 'Echolocation', gem: 'Zebra Jasper', rank: '3.2 Median Militia', description: 'Can sense surroundings through sound' },
+  { name: 'Lava Shaping', gem: 'Obsidian', rank: '3.2 Median Militia', description: 'Can control and shape lava' },
+  
+  // 3.1 Rank
+  { name: 'Shockwave Pulse', gem: 'Topaz', rank: '3.1 High Militia', description: 'Can send out a burst of force from her body' },
+  { name: 'Dragon\'s Breath', gem: 'Dragon\'s Breath Fire Opal', rank: '3.1 High Militia', description: 'Can expel a concentrated blast of flame from her mouth' },
+  { name: 'Scaled Hide', gem: 'Dragon\'s Breath Fire Opal', rank: '3.1 High Militia', description: 'Can harden patches of skin into tough, heat resistant plating' },
+  { name: 'Heat Sense', gem: 'Dragon\'s Breath Fire Opal', rank: '3.1 High Militia', description: 'Can feel heat sources and flame nearby' },
+  
+  // 2.3 Rank
+  { name: 'Hydrokinetic Constructs', gem: 'Azurite', rank: '2.3 Low Authoritative', description: 'Can form constructs out of water' },
+  { name: 'Hydrokinetic Combat', gem: 'Aquamarine', rank: '2.3 Low Authoritative', description: 'Capable of generating and controlling water from weapon' },
+  { name: 'Fairy Wings', gem: 'Aquamarine', rank: '2.3 Low Authoritative', description: 'Can manifest pixie wings made of water' },
+  { name: 'Cryokinesis', gem: 'Aquamarine', rank: '2.3 Low Authoritative', description: 'Can generate, control, and manipulate Ice' },
+  { name: 'Oposkinetic Combat', gem: 'Amber', rank: '2.3 Low Authoritative', description: 'Capable of generating and controlling Sap from weapon' },
+  { name: 'Bee Wings', gem: 'Amber', rank: '2.3 Low Authoritative', description: 'Can manifest Bee wings made of Sap' },
+  { name: 'Mélikinesis', gem: 'Amber', rank: '2.3 Low Authoritative', description: 'Can generate, control, and manipulate Honey' },
+  { name: 'Weapon Mastery', gem: 'Onyx', rank: '2.3 Low Authoritative', description: 'Has a natural skill with all kinds of weapons' },
+  { name: 'Restoration', gem: 'Polyhedroid Agate', rank: '2.3 Low Authoritative', description: 'Can heal wounds and injuries on other gems' },
+  { name: 'Cat-like Reflexes', gem: 'Catseye', rank: '2.3 Low Authoritative', description: 'Naturally agile like felines, granting balance and combat evasion' },
+  { name: 'Contortionist', gem: 'Catseye', rank: '2.3 Low Authoritative', description: 'Possesses extreme natural flexibility' },
+  { name: 'Liquidation', gem: 'Catseye', rank: '2.3 Low Authoritative', description: 'Can temporarily transmute target\'s surface texture' },
+  
+  // 2.2 Rank
+  { name: 'Life Giver', gem: 'Nacre', rank: '2.2 Median Authoritative', description: 'Can create Pearls, one of the only gems besides a Diamond who can make new life' },
+  { name: 'Repair Station', gem: 'Nacre', rank: '2.2 Median Authoritative', description: 'Can Repair the Pearls they have created' },
+  { name: 'Veritas Sense', gem: 'Kyanite', rank: '2.2 Median Authoritative', description: 'Can naturally tell when a gem is lying or telling the truth' },
+  { name: 'Memory Wipe', gem: 'Hematite', rank: '2.2 Median Authoritative', description: 'Can remove memories and emotions from a gem' },
+  { name: 'Resonating Voice', gem: 'Scapolite', rank: '2.2 Median Authoritative', description: 'Has a powerful singing voice that carries far' },
+  { name: 'Gold Control', gem: 'Gold', rank: '2.2 Median Authoritative', description: 'Can melt, move, and shape gold' },
+  { name: 'Pure Complexion', gem: 'Gold', rank: '2.2 Median Authoritative', description: 'Immune to Corrosion and Corrosive Attacks' },
+  { name: 'Power Boost', gem: 'Charoite', rank: '2.2 Median Authoritative', description: 'Can amplify the aura and abilities of other gems' },
+  { name: 'Terrifying Aura', gem: 'Emerald', rank: '2.2 Median Authoritative', description: 'Can expel terrifying aura that instantly causes troops to fall back' },
+  { name: 'Holo Design', gem: 'Rhodochrosite', rank: '2.2 Median Authoritative', description: 'Can create holographic gems and analyze gem looks' },
+  { name: 'Clairvoyance', gem: 'Garnet', rank: '2.2 Median Authoritative', description: 'Can see glimpses of the future' },
+  { name: 'Hypnotic Voice', gem: 'Green Serpentine', rank: '2.2 Median Authoritative', description: 'Can lull others into a calm, trance like state through singing' },
+  { name: 'Serpent Shift', gem: 'Green Serpentine', rank: '2.2 Median Authoritative', description: 'Can change form into a large serpent' },
+  { name: 'Voice Copy', gem: 'Green Serpentine', rank: '2.2 Median Authoritative', description: 'Can mimic another gem\'s voice' },
+  { name: 'Voice Steal', gem: 'Green Serpentine', rank: '2.2 Median Authoritative', description: 'Can temporarily take another gem\'s voice away' },
+  
+  // 2.1 Rank
+  { name: 'Commanding Aura', gem: 'Hessonite', rank: '2.1 High Authoritative', description: 'Naturally commands respect and attention from troops' },
+  { name: 'Personal Darkness', gem: 'Hessonite [Era 0]', rank: '2.1 High Authoritative', description: 'Can create and control darkness around herself' },
+  { name: 'Silence', gem: 'Pyrope', rank: '2.1 High Authoritative', description: 'Can force an area or a person to go silent' },
+  { name: 'Essence Chemistry', gem: 'Zoisite', rank: '2.1 High Authoritative', description: 'Can combine gem essence in different ways' },
+  { name: 'Limited Cryokinesis', gem: 'Sapphire', rank: '2.1 High Authoritative', description: 'Has a small amount of ice control' },
+  { name: 'Crowd Pleaser', gem: 'Sardonyx', rank: '2.1 High Authoritative', description: 'Has a natural gift for making people laugh' },
+  { name: 'Push Broadcast', gem: 'Hematite [Era 0]', rank: '2.1 High Authoritative', description: 'Can send out news and information across the empire' },
+  { name: 'Vision Cast', gem: 'Tanzanite', rank: '2.1 High Authoritative', description: 'Can project future visions out of gemstone' },
+  
+  // 1.2 Rank
+  { name: 'Sub-Domain', gem: 'Cubic Zirconia', rank: '1.2 Transcendent', description: 'Carries a fragment of Diamond sibling\'s essence, giving sub-version of Diamond powers' },
+  { name: 'Fragment', gem: 'Diamond Pearl', rank: '1.2 Transcendent', description: 'Carries lowest ranked ability under Diamond\'s domain' },
+  { name: 'Cartoon Physics', gem: 'Diamond Spinel', rank: '1.2 Transcendent', description: 'Body operates under animated world rules instead of normal physics' },
+  
+  // United Frontier Abilities
+  { name: 'Advanced Restoration', gem: 'Celestine', rank: 'United Frontier', description: 'Can heal wounds and injuries at a stronger level than standard Angelite' },
+  { name: 'Wingless Flight', gem: 'Celestine', rank: 'United Frontier', description: 'Can fly without needing wings' },
+  { name: 'Psionics', gem: 'Almandine', rank: 'United Frontier', description: 'Can move debris and shift surroundings using mind, sense survivors' },
+  { name: 'Small Flame', gem: 'Almandine', rank: 'United Frontier', description: 'Can create and control small fires' },
+  { name: "Appraiser's Eye", gem: 'Yellow Tourmaline', rank: 'United Frontier', description: 'Can judge the true value of any item or gem at a glance' },
+  { name: 'Golden Tongue', gem: 'Yellow Tourmaline', rank: 'United Frontier', description: 'Can sweeten a deal to tip negotiation in favor' },
+  { name: 'Perfect Restoration', gem: 'Seraphinite', rank: 'United Frontier', description: 'Can heal wounds, repair severe trauma, reverse light-form instability' },
+  { name: 'Clarity Voice', gem: 'Iolite', rank: 'United Frontier', description: 'Can explain any idea in a way that clicks almost instantly' },
+  { name: 'Memory Anchors', gem: 'Iolite', rank: 'United Frontier', description: 'Can plant a strong mental cue to help recall lessons later' },
+  { name: 'Path Sense', gem: 'Astrophyllite', rank: 'United Frontier', description: 'Can read into a gem\'s natural talents and leanings' },
+  { name: 'Serene Presence', gem: 'Astrophyllite', rank: 'United Frontier', description: 'Gives off aura of Serenity that eases nerves' },
+  { name: 'Record Keeper', gem: 'Labradorite', rank: 'United Frontier', description: 'Can recall names, faces, and past records of any gem met' },
+  { name: 'Hydroportation', gem: 'Labradorite', rank: 'United Frontier', description: 'Can teleport to other locations that contain water' },
+  { name: 'Prism', gem: 'Clear Quartz', rank: 'United Frontier', description: 'Every Quartz starts as Clear Quartz, colorless, until shifting to a type' },
+  { name: 'Plasma Generation', gem: 'Amethyst', rank: 'United Frontier', description: 'Can create small streams of superheated plasma' },
+  { name: 'Grit Skin', gem: 'Carnelian', rank: 'United Frontier', description: 'Outer form hardens under heat instead of breaking down' },
+  { name: 'Sharp Eye', gem: 'Cherry Quartz', rank: 'United Frontier', description: 'When examining structure, can spot hidden flaw or vulnerability' },
+  { name: 'Citric Secretion', gem: 'Citrine', rank: 'United Frontier', description: 'Body can produce mild acidic compound to eat through metal' },
+  { name: 'Stoneguard', gem: 'Jasper', rank: 'United Frontier', description: 'Form thickens and toughens, becoming dense and resistant to cracking' },
+  { name: 'Milky Mist', gem: 'Milky Quartz', rank: 'United Frontier', description: 'Breathes out cloud of soft mist that makes enemies fall asleep' },
+  { name: 'Assembly', gem: 'Prasiolite', rank: 'United Frontier', description: 'Can put together any piece of technology without needing manual' },
+  { name: 'Vibrokinesis', gem: 'Smoky Quartz', rank: 'United Frontier', description: 'Can create, shape, and control vibrations from body or contact' },
+  { name: 'Ergokinetic Combat', gem: 'Zebra Jasper', rank: 'United Frontier', description: 'Can channel kinetic energy directly into limbs for powerful strikes' },
+  { name: 'Herd Bond', gem: 'Zebra Jasper', rank: 'United Frontier', description: 'Physical output scales upward relative to team size' },
+  
+  // Rogue
+  { name: 'Atmokinesis', gem: 'Shattuckite', rank: 'Titan', description: 'Weather Manipulation' },
+  { name: 'Shield Generation', gem: 'Shattuckite', rank: 'Titan', description: 'Can create shields' },
+  { name: 'Monstrous Howl', gem: 'Shattuckite', rank: 'Titan', description: 'Powerful howl' },
+  { name: 'Technological Weaponry Crafting', gem: 'Shattuckite', rank: 'Titan', description: 'Can craft technological weapons' },
+];
+
 const customAbilitySuggestions = {
   'Water Control + Fire Control': {
     name: 'Steam Manipulation',
@@ -513,6 +687,55 @@ function generateAbilitySuggestions(first, second) {
   return suggestions;
 }
 
+// Ability Overlap Checker functions
+function searchAbilityDatabase(searchTerm) {
+  const normalizedSearch = searchTerm.toLowerCase().trim();
+  if (!normalizedSearch) return [];
+  
+  return abilityDatabase.filter(ability => {
+    const nameMatch = ability.name.toLowerCase().includes(normalizedSearch);
+    const descMatch = ability.description.toLowerCase().includes(normalizedSearch);
+    const gemMatch = ability.gem.toLowerCase().includes(normalizedSearch);
+    const rankMatch = ability.rank.toLowerCase().includes(normalizedSearch);
+    return nameMatch || descMatch || gemMatch || rankMatch;
+  });
+}
+
+function checkAbilityOverlap() {
+  const searchInput = $('ability-search-input');
+  const resultsContainer = $('ability-results');
+  const searchTerm = searchInput.value;
+  
+  if (!searchTerm) {
+    resultsContainer.innerHTML = '<p class="field-note">Enter an ability name to check for overlaps with existing gems.</p>';
+    return;
+  }
+  
+  const matches = searchAbilityDatabase(searchTerm);
+  
+  if (matches.length === 0) {
+    resultsContainer.innerHTML = `<p class="field-note">No matches found for "${searchTerm}". This ability appears to be unique.</p>`;
+  } else {
+    resultsContainer.innerHTML = `<p class="field-note">Found ${matches.length} potential match(es) for "${searchTerm}":</p>`;
+    const resultsList = document.createElement('div');
+    resultsList.className = 'ability-results-list';
+    
+    matches.forEach(match => {
+      const resultItem = document.createElement('div');
+      resultItem.className = 'ability-result-item';
+      resultItem.innerHTML = `
+        <strong>${match.name}</strong>
+        <span class="ability-meta">Gem: ${match.gem}</span>
+        <span class="ability-meta">Rank: ${match.rank}</span>
+        <p class="ability-desc">${match.description}</p>
+      `;
+      resultsList.appendChild(resultItem);
+    });
+    
+    resultsContainer.appendChild(resultsList);
+  }
+}
+
 function refreshFusion() { const first = fusionComponent(fusionAEl); const second = fusionComponent(fusionBEl); if (!first || !second) return; const combined = combine(first.stats, second.stats); $('fusion-a-name').textContent = `${first.name} abilities`; $('fusion-b-name').textContent = `${second.name} abilities`; $('fusion-stats').replaceChildren(...S.map(key => { const div = document.createElement('div'); div.className = 'stat'; div.innerHTML = `<span>${key}</span><strong>${combined[key]}</strong><div class="change">Base stat total</div>`; return div; })); showFusionAbilities($('fusion-a-abilities'), first); showFusionAbilities($('fusion-b-abilities'), second); const suggestions = generateAbilitySuggestions(first, second); const suggestionsContainer = $('fusion-suggestions'); suggestionsContainer.replaceChildren(...suggestions.map(suggestion => { const article = document.createElement('article'); article.className = 'suggestion-card'; let content = `<h4>${suggestion.name}</h4><p>${suggestion.description}</p>`; if (suggestion.wikiLink) { content += `<a href="${suggestion.wikiLink}" target="_blank" rel="noopener noreferrer">View on Superpowers Wiki →</a>`; } article.innerHTML = content; return article; })); }
 function initialiseFusionTool() { const first = fusionAEl.value; const second = fusionBEl.value; populateFusionSelect(fusionAEl, first); populateFusionSelect(fusionBEl, second); if (!fusionAEl.value) fusionAEl.selectedIndex = 0; if (!fusionBEl.value) fusionBEl.selectedIndex = Math.min(1, fusionBEl.options.length - 1); refreshFusion(); }
 function refresh() {
@@ -535,3 +758,7 @@ choices(factionEl, ['Gempire', 'United Frontier', 'Rogue']); choices(eraEl, modi
 factionEl.addEventListener('change', refreshGems); [gemEl, prismEl, eraEl, cutEl, $('level')].forEach(el => el.addEventListener('input', refresh));
 refreshGems();
 fusionAEl.addEventListener('change', refreshFusion); fusionBEl.addEventListener('change', refreshFusion); initialiseFusionTool();
+
+// Ability Checker event listeners
+$('ability-search-btn').addEventListener('click', checkAbilityOverlap);
+$('ability-search-input').addEventListener('input', checkAbilityOverlap);

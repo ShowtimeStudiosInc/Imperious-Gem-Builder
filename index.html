@@ -118,6 +118,24 @@
         <div class="fusion-suggestions" id="fusion-suggestions"></div>
         <p class="field-note">The total is the two selected gems' base stat sum. Choose which abilities become part of the fusion according to your fusion rules.</p>
       </section>
+
+      <section class="result ability-checker" aria-label="Ability overlap checker">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">ABILITY CHECKER</p>
+            <h2>Ability Overlap Checker</h2>
+            <p class="lede">Check if a new ability name or effect overlaps with existing gems in the database.</p>
+          </div>
+        </div>
+        <div class="ability-search-container">
+          <label for="ability-search-input">Ability name or description</label>
+          <input id="ability-search-input" type="text" placeholder="e.g., 'Water Control' or 'healing'" />
+          <button id="ability-search-btn">Search Database</button>
+        </div>
+        <div class="ability-results" id="ability-results">
+          <p class="field-note">Enter an ability name to check for overlaps with existing gems.</p>
+        </div>
+      </section>
     </main>
     <script src="app.js"></script>
   </body>
