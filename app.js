@@ -482,7 +482,7 @@ function generateAbilitySuggestions(first, second) {
   const firstAbilities = splitAbilities(first.abilities);
   const secondAbilities = splitAbilities(second.abilities);
   
-  // Check for custom combinations
+  // Check for custom combinations only (no individual ability suggestions)
   for (const firstAbility of firstAbilities) {
     for (const secondAbility of secondAbilities) {
       const comboKey = `${firstAbility} + ${secondAbility}`;
@@ -496,24 +496,7 @@ function generateAbilitySuggestions(first, second) {
     }
   }
   
-  // Check for individual ability wiki links
-  const allAbilities = [...firstAbilities, ...secondAbilities];
-  for (const ability of allAbilities) {
-    for (const [wikiName, wikiLink] of Object.entries(superpowersWiki)) {
-      if (ability.toLowerCase().includes(wikiName.toLowerCase()) || 
-          wikiName.toLowerCase().includes(ability.toLowerCase())) {
-        if (!suggestions.some(s => s.name === wikiName)) {
-          suggestions.push({
-            name: wikiName,
-            description: `Based on ${ability}. See wiki for full details.`,
-            wikiLink: wikiLink
-          });
-        }
-      }
-    }
-  }
-  
-  // If no specific matches, add some general fusion suggestions
+  // If no specific combinations found, add general fusion suggestions
   if (suggestions.length === 0) {
     suggestions.push({
       name: 'Hybrid Mastery',
