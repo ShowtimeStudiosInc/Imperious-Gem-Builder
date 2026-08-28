@@ -228,6 +228,27 @@
           </div>
         </div>
       </section>
+
+      <section class="result submission-validator" aria-label="Character sheet validator">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">SUBMISSION VALIDATOR</p>
+            <h2>Character Sheet Validator</h2>
+            <p class="lede">Paste your character sheet to validate it against Gem Guide template rules and check for ability overlaps.</p>
+          </div>
+        </div>
+        
+        <div class="validator-input">
+          <label for="character-sheet-input">Character Sheet</label>
+          <textarea id="character-sheet-input" rows="12" placeholder="Paste your character sheet here (name, gem type, stats, abilities, etc.)"></textarea>
+        </div>
+        
+        <button id="validate-btn" class="validate-btn">Validate Sheet</button>
+        
+        <div class="validation-results" id="validation-results">
+          <p class="field-note">Paste your character sheet to validate it against Gem Guide template rules.</p>
+        </div>
+      </section>
     </main>
     <script src="app.js"></script>
   </body>

@@ -780,6 +780,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  
+  // Submission Validator event listener
+  const validateBtn = $('validate-btn');
+  if (validateBtn) validateBtn.addEventListener('click', runValidation);
 });
 
 // Diamond mapping for Facet codes
@@ -793,6 +797,28 @@ const diamondCodes = {
   'Maroon Red Diamond': '4',
   'Emerald Green Diamond': '5',
   'Saturn Light Diamond': '6'
+};
+
+// Character Sheet Validation Rules
+const validationRules = {
+  requiredFields: [
+    'name',
+    'gem_type',
+    'faction',
+    'rank',
+    'stats',
+    'abilities'
+  ],
+  statRanges: {
+    HP: { min: 0, max: 100 },
+    ATK: { min: 0, max: 30 },
+    DEF: { min: 0, max: 30 },
+    SPD: { min: 0, max: 15 },
+    INT: { min: 0, max: 15 },
+    MAG: { min: 0, max: 30 }
+  },
+  validFactions: ['Gempire', 'United Frontier', 'Rogue'],
+  validRanks: ['5.2', '5.1', '4.3', '4.2', '4.1', '3.3', '3.2', '3.1', '2.3', '2.2', '2.1', '1.2']
 };
 
 // Social standing mapping (rank without decimal)
@@ -854,4 +880,92 @@ function copyToClipboard(text) {
   }).catch(err => {
     console.error('Failed to copy: ', err);
   });
+}
+
+// Character Sheet Validator functions
+function validateCharacterSheet(sheetText) {
+  const issues = [];
+  const warnings = [];
+  
+  // Parse character sheet (basic text analysis)
+  const lines = sheetText.split('\n').map(line => line.trim()).filter(line => line);
+  
+  // Check for basic required fields presence
+  const hasName = lines.some(line => line.toLowerCase().includes('name') || /^[A-Z]/.test(line));
+  const hasGemType = lines.some(line => line.toLowerCase().includes('gem') || line.toLowerCase().includes('type'));
+  const hasStats = lines.some(line => /\d+/.test(line) && (line.toLowerCase().includes('hp') || line.toLowerCase().includes('atk') || line.toLowerCase().includes('def')));
+  const hasAbilities = lines.some(line => line.toLowerCase().includes('ability') || line.toLowerCase().includes('special'));
+  
+  if (!hasName) issues.push('Missing character name');
+  if (!hasGemType) issues.push('Missing gem type identification');
+  if (!hasStats) issues.push('Missing stat block (HP, ATK, DEF, etc.)');
+  if (!hasAbilities) issues.push('Missing abilities section');
+  
+  // Extract and validate abilities
+  const abilityLines = lines.filter(line => 
+    line.toLowerCase().includes('ability') || 
+    line.toLowerCase().includes('special') ||
+    line.toLowerCase().includes('power')
+  );
+  
+  // Check for ability overlaps using our database
+  abilityLines.forEach(line => {
+    const cleanLine = line.replace(/[^a-zA-Z\s]/g, '').trim();
+    if (cleanLine.length > 3) {
+      const matches = searchAbilityDatabase(cleanLine);
+      if (matches.length > 0) {
+        warnings.push(`Potential ability overlap: "${cleanLine}" matches existing abilities: ${matches.map(m => m.name).join(', ')}`);
+      }
+    }
+  });
+  
+  // Extract and validate stats (basic number extraction)
+  const statMatches = sheetText.match(/(\d+)/g);
+  if (statMatches && statMatches.length >= 4) {
+    const stats = statMatches.slice(0, 6).map(Number);
+    // Basic stat range checks
+    stats.forEach((stat, index) => {
+      const statNames = ['HP', 'ATK', 'DEF', 'SPD', 'INT', 'MAG'];
+      if (stat < 0) issues.push(`${statNames[index]} stat is negative (${stat})`);
+      if (stat > 100) warnings.push(`${statNames[index]} stat is unusually high (${stat})`);
+    });
+  }
+  
+  return { issues, warnings };
+}
+
+function runValidation() {
+  const sheetInput = $('character-sheet-input').value;
+  const resultsContainer = $('validation-results');
+  
+  if (!sheetInput.trim()) {
+    resultsContainer.innerHTML = '<p class="field-note">Paste your character sheet to validate it against Gem Guide rules.</p>';
+    return;
+  }
+  
+  const { issues, warnings } = validateCharacterSheet(sheetInput);
+  
+  let html = '';
+  
+  if (issues.length === 0 && warnings.length === 0) {
+    html = '<div class="validation-success"><h3>✓ Character sheet looks good!</h3><p>No major issues found. This sheet appears to follow Gem Guide template rules.</p></div>';
+  } else {
+    if (issues.length > 0) {
+      html += '<div class="validation-issues"><h3>❌ Issues Found:</h3><ul>';
+      issues.forEach(issue => {
+        html += `<li>${issue}</li>`;
+      });
+      html += '</ul></div>';
+    }
+    
+    if (warnings.length > 0) {
+      html += '<div class="validation-warnings"><h3>⚠️ Warnings:</h3><ul>';
+      warnings.forEach(warning => {
+        html += `<li>${warning}</li>`;
+      });
+      html += '</ul></div>';
+    }
+  }
+  
+  resultsContainer.innerHTML = html;
 }
