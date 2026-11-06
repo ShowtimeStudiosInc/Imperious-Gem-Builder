@@ -19,6 +19,17 @@ const abilityDatabase = [...gems, ...quartz].flatMap(record => {
     description: detail.description || ''
   })));
 });
+const fusionAbilityExamples = gems.filter(record => record.fusion).flatMap(record =>
+  (record.abilityDetails || [])
+    .filter(detail => detail.type === 'Fusion Ability')
+    .map(detail => ({
+      fusion: record.name,
+      components: record.components || [],
+      name: detail.name,
+      category: detail.category || '',
+      description: detail.description || ''
+    }))
+);
 
 const $ = id => document.getElementById(id); const factionEl = $('faction'), gemEl = $('gem'), prismEl = $('prism'), eraEl = $('era'), cutEl = $('cut'), defectStatAEl = $('defect-stat-a'), defectStatBEl = $('defect-stat-b'), fusionAEl = $('fusion-a'), fusionBEl = $('fusion-b');
 function option(value, label = value) { const node = document.createElement('option'); node.value = value; node.textContent = label; return node; }
@@ -81,11 +92,71 @@ function showFusionAbilities(target, record) {
   const abilities = recordAbilities(record);
   target.replaceChildren(...abilities.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
 }
-function generateAbilitySuggestions() {
-  return [{
-    name: 'No predefined fusion abilities',
-    description: 'The imported rules do not define additional ability combinations. Choose abilities according to the approved fusion rules.'
+function fusionAbilityOptions(record) {
+  const details = (record.abilityDetails || []).filter(detail => ['Signature Ability', 'Fusion Ability'].includes(detail.type));
+  const abilities = details.flatMap(detail =>
+    (detail.names?.length ? detail.names : [detail.name]).filter(Boolean).map(name => ({
+      name,
+      category: detail.category || ''
+    }))
+  );
+  return abilities.length ? abilities : recordAbilities(record).map(name => ({ name, category: '' }));
+}
+function fusionExampleScore(first, second, firstAbility, secondAbility, example) {
+  const exactComponents = example.components.includes(first.name) && example.components.includes(second.name);
+  const exampleSources = example.components.map(name => gems.find(record => record.name === name && !record.fusion));
+  const sourceCategories = exampleSources.map(source => new Set(
+    source ? fusionAbilityOptions(source).map(ability => ability.category).filter(Boolean) : []
+  ));
+  let score = exactComponents ? 20 : 0;
+  for (const [left, right] of [[0, 1], [1, 0]]) {
+    let orientationScore = 0;
+    if (firstAbility.category && sourceCategories[left].has(firstAbility.category)) orientationScore += 3;
+    if (secondAbility.category && sourceCategories[right].has(secondAbility.category)) orientationScore += 3;
+    if (firstAbility.category && firstAbility.category === example.category) orientationScore += 1;
+    if (secondAbility.category && secondAbility.category === example.category) orientationScore += 1;
+    score = Math.max(score, orientationScore);
+  }
+  if (firstAbility.category && firstAbility.category === secondAbility.category) score += 1;
+  return score;
+}
+function generateAbilitySuggestions(first, second) {
+  const pairs = [];
+  const seen = new Set();
+  for (const firstAbility of fusionAbilityOptions(first)) {
+    for (const secondAbility of fusionAbilityOptions(second)) {
+      const key = `${firstAbility.name}|${secondAbility.name}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      pairs.push({ firstAbility, secondAbility });
+    }
+  }
+  if (!pairs.length) return [{
+    name: 'No listed component abilities',
+    description: 'Add abilities to the selected component profiles to get combination ideas.'
   }];
+
+  return pairs
+    .map(pair => {
+      const rankedExamples = [...fusionAbilityExamples].map(example => ({
+        example,
+        score: fusionExampleScore(first, second, pair.firstAbility, pair.secondAbility, example)
+      })).sort((a, b) => b.score - a.score);
+      const { example, score } = rankedExamples[0] || {};
+      const categories = [pair.firstAbility.category, pair.secondAbility.category].filter(Boolean);
+      const theme = categories.length ? ` Their ${categories.join(' and ')} themes could guide the effect.` : '';
+      const precedent = example
+        ? ` A documented precedent is ${example.fusion}'s ${example.name} (${example.components.join(' + ')}): ${example.description}`
+        : '';
+      return {
+        name: `${pair.firstAbility.name} + ${pair.secondAbility.name}`,
+        description: `Brainstorm a new fusion-only ability that blends these component abilities.${theme}${precedent}`,
+        relevance: score || 0
+      };
+    })
+    .sort((a, b) => b.relevance - a.relevance)
+    .map(({ name, description }) => ({ name, description }))
+    .slice(0, 3);
 }
 
 // Ability Overlap Checker functions
@@ -366,7 +437,7 @@ const diamondCodes = {
   'Epsilon Blue Diamond': '2',
   'Nightshade Violet Diamond': '3',
   'Maroon Red Diamond': '4',
-  'Emerald Green Diamond': '5',
+  'Bi-Colored Kandy Diamond': '5',
   'Saturn Light Diamond': '6'
 };
 
