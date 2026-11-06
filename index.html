@@ -12,11 +12,15 @@
   <body>
     <main class="shell">
       <header class="hero">
-        <div class="logo-container">
-          <img src="images/logo.png" alt="Imperious Authorities Logo" class="logo" />
+        <div class="identity-lockup">
+          <div class="logo-container">
+            <img src="logo.png" alt="Imperious Authorities Logo" class="logo" />
+          </div>
+          <div class="identity-copy">
+            <p class="eyebrow">IMPERIOUS AUTHORITIES</p>
+            <h1>Gem Builder</h1>
+          </div>
         </div>
-        <p class="eyebrow">IMPERIOUS AUTHORITIES</p>
-        <h1>Gem Builder</h1>
         <p class="lede">Build a gem record under the Diamond Authorities, apply approved modifiers, and view the resulting stat profile.</p>
       </header>
 
@@ -55,6 +59,19 @@
           <div>
             <label for="cut">Cut selection</label>
             <select id="cut"></select>
+          </div>
+        </div>
+        <div class="step hidden" id="defect-stats-step">
+          <span class="step-number">5a</span>
+          <div class="defect-stat-selects">
+            <div>
+              <label for="defect-stat-a">First defective stat</label>
+              <select id="defect-stat-a"></select>
+            </div>
+            <div>
+              <label for="defect-stat-b">Second defective stat</label>
+              <select id="defect-stat-b"></select>
+            </div>
           </div>
         </div>
         <div class="step">
@@ -141,6 +158,20 @@
         <div class="ability-results" id="ability-results">
           <p class="field-note">Enter an ability name to check for overlaps with existing gems.</p>
         </div>
+      </section>
+
+      <section class="result item-rules" aria-label="Items and battle rules">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">REFERENCE</p>
+            <h2>Items & Battle Rules</h2>
+            <p class="lede">The imported item and combat rules, including weapon profiles and item templates.</p>
+          </div>
+        </div>
+        <details>
+          <summary>View Items & Battle Rules</summary>
+          <div id="item-rules-content" class="item-rules-content"></div>
+        </details>
       </section>
 
       <section class="result facet-cut-generator" aria-label="Facet and cut generator">
@@ -256,6 +287,7 @@
         </div>
       </section>
     </main>
+    <script src="gem-database.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
