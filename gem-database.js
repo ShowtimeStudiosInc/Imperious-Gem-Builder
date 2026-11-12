@@ -6902,47 +6902,6 @@ window.GEM_DATABASE = {
       "profileMarkdown": "# RAINBOW ANGELITE [SUB-TYPE OF ANGELITE]\n**``BASE STATS``**\n_``HP:``_ 32\n_``ATK:``_ 2\n_``DEF:``_ 6\n_``SPD:``_ 5\n_``INT:``_ 5\n_``MAG:``_ 5\n_``Signature Ability:``_ `Healing` [Enhanced] [Enchantments] - Rainbow Angelite's body is particularly suited to restorative light. Beyond what a standard Angelite can do, she can also purify. She can't mend cracks, reverse corruption, or undo a shattering.\n- `Restorative Light [2 SP]` - Heals one ally, who can be Near or Far, for 2d4 + MAG, and removes one negative status from them."
     },
     {
-      "name": "Bumblebee Jasper",
-      "faction": "United Frontier",
-      "rank": "United Frontier",
-      "statBudget": null,
-      "stats": null,
-      "statModifier": {
-        "HP": -2,
-        "ATK": 2,
-        "DEF": -1,
-        "SPD": 2,
-        "INT": -2,
-        "MAG": -2
-      },
-      "abilities": [
-        "Paralyzing Bite"
-      ],
-      "abilityDetails": [
-        {
-          "type": "Signature Ability",
-          "names": [
-            "Paralyzing Bite"
-          ],
-          "name": "Paralyzing Bite",
-          "rating": null,
-          "category": null,
-          "cost": null,
-          "passive": true,
-          "description": "Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).",
-          "moves": [],
-          "sourceText": "`Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents)."
-        }
-      ],
-      "fusion": false,
-      "components": [],
-      "kind": null,
-      "tags": [
-        "United Frontier Gem-Type"
-      ],
-      "profileMarkdown": "# BUMBLEBEE JASPER [UNITED FRONTIER]\n**``BASE STATS``**\n_``ATK:``_ +2\n_``DEF:``_ -1 (-2 HP)\n_``SPD:``_ +2\n_``INT:``_ -2\n_``MAG:``_ -2\n_``Signature Ability:``_ `Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).\n\n**``Gemstone Appearance``**\nBumblebee Jaspers typically take on a gray appearance with yellow or orange hair. They also bear yellow, orange, and black markings across their bodies, though the majority of their design is gray and yellow.\n\nA gem type produced exclusively in the United Frontier, Bumblebee Jaspers tend to find work in military or security fields due to their paralytic ability. Being smaller and faster than the typical jasper variants also helps them in this field, as they can slip past lines of enemies far more easily than their larger sisters. When they do not go into combat-focused fields, some Bumblebee Jaspers become dancers to tell stories and send messages through the motions of their bodies, much like actual bees."
-    },
-    {
       "name": "Melanite",
       "faction": "United Frontier",
       "rank": "None",
@@ -7154,6 +7113,48 @@ window.GEM_DATABASE = {
     }
   ],
   "quartzShifts": [
+    {
+      "name": "Bumblebee Jasper",
+      "faction": "United Frontier",
+      "rank": "United Frontier",
+      "statBudget": null,
+      "stats": null,
+      "statModifier": {
+        "HP": -2,
+        "ATK": 2,
+        "DEF": -1,
+        "SPD": 2,
+        "INT": -2,
+        "MAG": -2
+      },
+      "abilities": [
+        "Paralyzing Bite"
+      ],
+      "abilityDetails": [
+        {
+          "type": "Signature Ability",
+          "names": [
+            "Paralyzing Bite"
+          ],
+          "name": "Paralyzing Bite",
+          "rating": null,
+          "category": null,
+          "cost": null,
+          "passive": true,
+          "description": "Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).",
+          "moves": [],
+          "sourceText": "`Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents)."
+        }
+      ],
+      "fusion": false,
+      "components": [],
+      "kind": null,
+      "tags": [
+        "United Frontier Gem-Type",
+        "Quartz group"
+      ],
+      "profileMarkdown": "# BUMBLEBEE JASPER [UNITED FRONTIER] [THE QUARTZ GROUP]\n**``STAT MODIFIER``**\n_``ATK:``_ +2\n_``DEF:``_ -1 (-2 HP)\n_``SPD:``_ +2\n_``INT:``_ -2\n_``MAG:``_ -2\n_``Signature Ability:``_ `Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).\n\n**``Gemstone Appearance``**\nBumblebee Jaspers typically take on a gray appearance with yellow or orange hair. They also bear yellow, orange, and black markings across their bodies, though the majority of their design is gray and yellow.\n\nA gem type produced exclusively in the United Frontier, Bumblebee Jaspers tend to find work in military or security fields due to their paralytic ability. Being smaller and faster than the typical jasper variants also helps them in this field, as they can slip past lines of enemies far more easily than their larger sisters. When they do not go into combat-focused fields, some Bumblebee Jaspers become dancers to tell stories and send messages through the motions of their bodies, much like actual bees."
+    },
     {
       "name": "Amethyst",
       "faction": "United Frontier",
