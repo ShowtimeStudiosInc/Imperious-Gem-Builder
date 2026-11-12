@@ -333,6 +333,10 @@ function refresh() {
   const prismActive = record.name === 'Clear Quartz' && record.faction === 'United Frontier'; $('prism-step').classList.toggle('hidden', !prismActive);
   const modifier = modifiers.find(m => m.name === eraEl.value) || modifiers[0];
   if (!modifierApplies(modifier, record)) eraEl.value = modifiers[0].name;
+  [...eraEl.options].forEach(option => {
+    const optionModifier = modifiers.find(item => item.name === option.value);
+    option.disabled = optionModifier ? !modifierApplies(optionModifier, record) : false;
+  });
   const currentModifier = modifiers.find(m => m.name === eraEl.value) || modifiers[0];
   const rank = rankFor(record);
   const shift = prismActive && prismEl.value !== 'Unshifted' ? quartz.find(q => q.name === prismEl.value) : null;
