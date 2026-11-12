@@ -348,6 +348,7 @@ function refresh() {
     [defectStatAEl.value]: -1,
     [defectStatBEl.value]: -1
   } : zero;
+  const modifierOnlyProfile = !record.stats && Boolean(record.statModifier);
   const growth = levelGrowth(level, record.classification);
   const adjustments = combine(currentModifier.stats, cutData.stats, growth, shift?.statModifier, defectPenalty);
   const final = combine(base, currentModifier.stats, cutData.stats, growth, defectPenalty);
@@ -378,10 +379,13 @@ function refresh() {
     const label = document.createElement('span');
     label.textContent = key;
     const value = document.createElement('strong');
-    value.textContent = record.fusion ? '?' : Math.max(0, final[key]);
+    const sourceModifier = record.statModifier?.[key] || 0;
+    if (record.fusion) value.textContent = '?';
+    else if (modifierOnlyProfile) value.textContent = sourceModifier > 0 ? `+${sourceModifier}` : sourceModifier;
+    else value.textContent = Math.max(0, final[key]);
     const change = document.createElement('div');
     change.className = 'change';
-    change.textContent = record.fusion ? 'Component-derived' : adjustments[key] ? `${adjustments[key] > 0 ? '+' : ''}${adjustments[key]} adjustment` : 'Base value';
+    change.textContent = record.fusion ? 'Component-derived' : modifierOnlyProfile ? 'Source modifier; base unknown' : adjustments[key] ? `${adjustments[key] > 0 ? '+' : ''}${adjustments[key]} adjustment` : 'Base value';
     div.append(label, value, change);
     return div;
   }));
@@ -392,7 +396,8 @@ function refresh() {
   if (cutEl.value.startsWith('Perfect')) notes.push('The selected cut applies its imported stat modifiers and enhances the signature ability.');
   if (cutEl.value === 'Defective') notes.push(`Defective applies -1 to ${defectStatAEl.value} and ${defectStatBEl.value}; the twisted signature ability must be selected by staff.`);
   if (shift) notes.push('The selected United Frontier Quartz shift applies its imported stat modifier to Clear Quartz base stats.');
-  notes.push('Level gains use the imported level-growth rules.');
+  if (modifierOnlyProfile) notes.push('This profile provides stat modifiers but no absolute base stats. The stat panel shows the source modifiers; final stats cannot be calculated from the supplied data.');
+  else notes.push('Level gains use the imported level-growth rules.');
   $('notice').textContent = notes.join(' ');
 }
 choices(factionEl, factions); choices(eraEl, modifiers, m => m.name); choices(prismEl, ['Unshifted', ...quartz.map(q => q.name)]); choices(cutEl, Object.keys(cuts)); refreshDefectStatOptions();
