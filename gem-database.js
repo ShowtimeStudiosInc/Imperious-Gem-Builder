@@ -6900,6 +6900,257 @@ window.GEM_DATABASE = {
         "Subtype of Angelite"
       ],
       "profileMarkdown": "# RAINBOW ANGELITE [SUB-TYPE OF ANGELITE]\n**``BASE STATS``**\n_``HP:``_ 32\n_``ATK:``_ 2\n_``DEF:``_ 6\n_``SPD:``_ 5\n_``INT:``_ 5\n_``MAG:``_ 5\n_``Signature Ability:``_ `Healing` [Enhanced] [Enchantments] - Rainbow Angelite's body is particularly suited to restorative light. Beyond what a standard Angelite can do, she can also purify. She can't mend cracks, reverse corruption, or undo a shattering.\n- `Restorative Light [2 SP]` - Heals one ally, who can be Near or Far, for 2d4 + MAG, and removes one negative status from them."
+    },
+    {
+      "name": "Bumblebee Jasper",
+      "faction": "United Frontier",
+      "rank": "United Frontier",
+      "statBudget": null,
+      "stats": null,
+      "statModifier": {
+        "HP": -2,
+        "ATK": 2,
+        "DEF": -1,
+        "SPD": 2,
+        "INT": -2,
+        "MAG": -2
+      },
+      "abilities": [
+        "Paralyzing Bite"
+      ],
+      "abilityDetails": [
+        {
+          "type": "Signature Ability",
+          "names": [
+            "Paralyzing Bite"
+          ],
+          "name": "Paralyzing Bite",
+          "rating": null,
+          "category": null,
+          "cost": null,
+          "passive": true,
+          "description": "Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).",
+          "moves": [],
+          "sourceText": "`Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents)."
+        }
+      ],
+      "fusion": false,
+      "components": [],
+      "kind": null,
+      "tags": [
+        "United Frontier Gem-Type"
+      ],
+      "profileMarkdown": "# BUMBLEBEE JASPER [UNITED FRONTIER]\n**``BASE STATS``**\n_``ATK:``_ +2\n_``DEF:``_ -1 (-2 HP)\n_``SPD:``_ +2\n_``INT:``_ -2\n_``MAG:``_ -2\n_``Signature Ability:``_ `Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands secrete the venom into their saliva, with which they bite an opponent and paralyze them for 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).\n\n**``Gemstone Appearance``**\nBumblebee Jaspers typically take on a gray appearance with yellow or orange hair. They also bear yellow, orange, and black markings across their bodies, though the majority of their design is gray and yellow.\n\nA gem type produced exclusively in the United Frontier, Bumblebee Jaspers tend to find work in military or security fields due to their paralytic ability. Being smaller and faster than the typical jasper variants also helps them in this field, as they can slip past lines of enemies far more easily than their larger sisters. When they do not go into combat-focused fields, some Bumblebee Jaspers become dancers to tell stories and send messages through the motions of their bodies, much like actual bees."
+    },
+    {
+      "name": "Melanite",
+      "faction": "United Frontier",
+      "rank": "None",
+      "statBudget": null,
+      "stats": {
+        "HP": 30,
+        "ATK": 5,
+        "DEF": 5,
+        "SPD": 4,
+        "INT": 4,
+        "MAG": 4
+      },
+      "statModifier": null,
+      "abilities": [
+        "Life-Force Absorption",
+        "Death Sense",
+        "Selective Invisibility"
+      ],
+      "abilityDetails": [
+        {
+          "type": "Signature Ability",
+          "names": [
+            "Life-Force Absorption"
+          ],
+          "name": "Life-Force Absorption",
+          "rating": null,
+          "category": null,
+          "cost": null,
+          "passive": false,
+          "description": "Melanite can draw the life out of anything they touch, leaving plants grey, stone brittle, and gems weaker. What they take, they can keep for themself or pass on to someone else.",
+          "moves": [
+            {
+              "name": "Withering Touch",
+              "cost": 3,
+              "description": "Melanite grips one target who is Near and drains them, dealing 1d6 + MAG WITHER damage. Melanite heals for half the damage dealt, rounded up."
+            },
+            {
+              "name": "Life Siphon",
+              "cost": 2,
+              "description": "Melanite makes a FIGHT against one target. If it lands, one ally heals for half the damage dealt, rounded up."
+            }
+          ],
+          "sourceText": "`Life-Force Absorption` - Melanite can draw the life out of anything they touch, leaving plants grey, stone brittle, and gems weaker. What they take, they can keep for themself or pass on to someone else.\n- `Withering Touch [3 SP]` - Melanite grips one target who is Near and drains them, dealing 1d6 + MAG WITHER damage. Melanite heals for half the damage dealt, rounded up.\n- `Life Siphon [2 SP]` - Melanite makes a FIGHT against one target. If it lands, one ally heals for half the damage dealt, rounded up."
+        },
+        {
+          "type": "Latent Ability",
+          "names": [
+            "Death Sense"
+          ],
+          "name": "Death Sense",
+          "rating": "Limited",
+          "category": "Visions",
+          "cost": null,
+          "passive": true,
+          "description": "Melanite may learn to feel when a gem's end is near. They always know the HP of anyone they have touched.",
+          "moves": [],
+          "sourceText": "`Death Sense [PASSIVE]` [Limited] [Visions] - Melanite may learn to feel when a gem's end is near. They always know the HP of anyone they have touched."
+        },
+        {
+          "type": "Latent Ability",
+          "names": [
+            "Selective Invisibility"
+          ],
+          "name": "Selective Invisibility",
+          "rating": "Limited",
+          "category": "Alteration",
+          "cost": null,
+          "passive": false,
+          "description": "Melanite may learn to go invisible outside of combat. Gems that are close to shattering can still see them.",
+          "moves": [],
+          "sourceText": "`Selective Invisibility` [Limited] [Alteration] - Melanite may learn to go invisible outside of combat. Gems that are close to shattering can still see them."
+        }
+      ],
+      "fusion": false,
+      "components": [],
+      "kind": null,
+      "tags": [
+        "United Frontier Gem-Type"
+      ],
+      "profileMarkdown": "# MELANITE [UNITED FRONTIER GEM-TYPE]\n**``BASE STATS``**\n_``HP:``_ 30\n_``ATK:``_ 5\n_``DEF:``_ 5\n_``SPD:``_ 4\n_``INT:``_ 4\n_``MAG:``_ 4\n_``Signature Ability:``_ `Life-Force Absorption` - Melanite can draw the life out of anything they touch, leaving plants grey, stone brittle, and gems weaker. What they take, they can keep for themself or pass on to someone else.\n- `Withering Touch [3 SP]` - Melanite grips one target who is Near and drains them, dealing 1d6 + MAG WITHER damage. Melanite heals for half the damage dealt, rounded up.\n- `Life Siphon [2 SP]` - Melanite makes a FIGHT against one target. If it lands, one ally heals for half the damage dealt, rounded up.\n_``Latent Ability:``_ `Death Sense [PASSIVE]` [Limited] [Visions] - Melanite may learn to feel when a gem's end is near. They always know the HP of anyone they have touched.\n_``Latent Ability:``_ `Selective Invisibility` [Limited] [Alteration] - Melanite may learn to go invisible outside of combat. Gems that are close to shattering can still see them.\n\nMelanites serve as funeral directors in the United Frontier. When a gem is shattered, a Melanite is called in to collect the shards, keep them safe, and plan the service with the gem's family and friends. They keep a record of every gem they've laid to rest, and those records are often the only full account of a gem's life once they're gone. Melanites are also called to med bays when a gem is badly cracked and not expected to recover, so they can sit with them and prepare their family for what comes next. Because their work puts them close to every shattering in the Frontier, Melanites are often the first to notice when too many gems are being lost in one place."
+    },
+    {
+      "name": "Labradorite",
+      "faction": "Gempire",
+      "rank": "2.3 Low Aristocrat",
+      "statBudget": null,
+      "stats": {
+        "HP": 32,
+        "ATK": 4,
+        "DEF": 7,
+        "SPD": 4,
+        "INT": 8,
+        "MAG": 9
+      },
+      "statModifier": null,
+      "abilities": [
+        "Detailed",
+        "Paint Magic"
+      ],
+      "abilityDetails": [
+        {
+          "type": "Signature Ability",
+          "names": [
+            "Detailed"
+          ],
+          "name": "Detailed",
+          "rating": null,
+          "category": null,
+          "cost": null,
+          "passive": true,
+          "description": "Labradorites have a keen eye, being able to notice or fill in details that the average gem wouldn't notice. This adds +4 to their observation rolls.",
+          "moves": [],
+          "sourceText": "`Detailed [PASSIVE]` - Labradorites have a keen eye, being able to notice or fill in details that the average gem wouldn't notice. This adds +4 to their observation rolls."
+        },
+        {
+          "type": "Latent Ability",
+          "names": [
+            "Paint Magic"
+          ],
+          "name": "Paint Magic",
+          "rating": "Base",
+          "category": "Summoning",
+          "cost": null,
+          "passive": false,
+          "description": "A Labradorite can use the paint produced from their hair to make spells.",
+          "moves": [
+            {
+              "name": "Paint Splash",
+              "cost": 3,
+              "description": "Deals 2d4 + MAG damage to all enemies as Labradorite spins around, spraying paint everywhere. Each opposing unit hit rolls 1d20 to determine whether they become blinded for 2 turns."
+            }
+          ],
+          "sourceText": "`Paint Magic` [Base] [Summoning] - A Labradorite can use the paint produced from their hair to make spells.\n- `Paint Splash [3 SP, 2d4+MAG]` - Labradorite spins around, spraying paint everywhere to hit all enemies. Opposing units hit roll 1d20 to determine whether they become blinded for 2 turns."
+        }
+      ],
+      "fusion": false,
+      "components": [],
+      "kind": null,
+      "tags": [],
+      "profileMarkdown": "# LABRADORITE\n**``BASE STATS``**\n_``HP:``_ 32\n_``ATK:``_ 4\n_``DEF:``_ 7\n_``SPD:``_ 4\n_``INT:``_ 8\n_``MAG:``_ 9\n_``Height:``_ 6'7\n_``Signature Ability:``_ `Detailed [PASSIVE]` - Labradorites have a keen eye, being able to notice or fill in details that the average gem wouldn't notice. This adds +4 to their observation rolls.\n_``Latent Ability:``_ `Paint Magic` [Base] [Summoning] - A Labradorite can use the paint produced from their hair to make spells.\n- `Paint Splash [3 SP, 2d4+MAG]` - Labradorite spins around, spraying paint everywhere to hit all enemies. Opposing units hit roll 1d20 to determine whether they become blinded for 2 turns.\n\nLabradorites work as the Gempire's artists, painting requests for fellow aristocrats and even Cubic Zirconias. They are also responsible for recording history visually in the form of their art. Many murals of today were made by a group of talented Labradorites. The ends of their hair seem to always produce a colorful assortment of paint they use. It's said it has a shiny gleam to it. They are often found in Court Theta or Court Saturn.",
+      "height": "6'7"
+    },
+    {
+      "name": "Azurmalachite",
+      "faction": "Gempire",
+      "rank": "Not assigned",
+      "statBudget": null,
+      "stats": {
+        "HP": 32,
+        "ATK": 3,
+        "DEF": 6,
+        "SPD": 3,
+        "INT": 6,
+        "MAG": 5
+      },
+      "statModifier": null,
+      "abilities": [
+        "Edaphokinesis",
+        "Flight"
+      ],
+      "abilityDetails": [
+        {
+          "type": "Signature Ability",
+          "names": [
+            "Edaphokinesis"
+          ],
+          "name": "Edaphokinesis",
+          "rating": "Enhanced",
+          "category": "Elements",
+          "cost": null,
+          "passive": false,
+          "description": "Azurmalachite can reshape the land around herself and the water in it: raising short walls, digging trenches, flooding a room, or collapsing a stretch of ground under someone's feet.",
+          "moves": [
+            {
+              "name": "Pitfall",
+              "cost": 2,
+              "description": "The ground drops out from under one target. The target resists with SPD. If they fail, they're Knocked Down."
+            },
+            {
+              "name": "Upheaval",
+              "cost": 3,
+              "description": "The ground buckles under every enemy who is Near, dealing 1d6 + MAG EARTH damage to each."
+            }
+          ],
+          "sourceText": "`Edaphokinesis` [Enhanced] [Elements] - Azurmalachite can reshape the land around herself and the water in it: raising short walls, digging trenches, flooding a room, or collapsing a stretch of ground under someone's feet.\n- `Pitfall [2 SP]` - The ground drops out from under one target. The target resists with SPD. If they fail, they're Knocked Down.\n- `Upheaval [3 SP]` - The ground buckles under every enemy who is Near, dealing 1d6 + MAG EARTH damage to each."
+        },
+        {
+          "type": "Signature Ability",
+          "names": [
+            "Flight"
+          ],
+          "name": "Flight",
+          "rating": "Limited",
+          "category": null,
+          "cost": null,
+          "passive": true,
+          "description": "Azurmalachite can fly without wings. While flying, she counts as Far to anyone on the ground.",
+          "moves": [],
+          "sourceText": "`Flight [PASSIVE]` [Limited] - Azurmalachite can fly without wings. While flying, she counts as Far to anyone on the ground."
+        }
+      ],
+      "fusion": false,
+      "components": [],
+      "kind": null,
+      "tags": [
+        "Geode"
+      ],
+      "profileMarkdown": "# AZURMALACHITE [GEODE]\n**``BASE STATS``**\n_``HP:``_ 32\n_``ATK:``_ 3\n_``DEF:``_ 6\n_``SPD:``_ 3\n_``INT:``_ 6\n_``MAG:``_ 5\n_``Signature Ability:``_ `Edaphokinesis` [Enhanced] [Elements] - Azurmalachite can reshape the land around herself and the water in it: raising short walls, digging trenches, flooding a room, or collapsing a stretch of ground under someone's feet.\n- `Pitfall [2 SP]` - The ground drops out from under one target. The target resists with SPD. If they fail, they're Knocked Down.\n- `Upheaval [3 SP]` - The ground buckles under every enemy who is Near, dealing 1d6 + MAG EARTH damage to each.\n_``Signature Ability:``_ `Flight [PASSIVE]` [Limited] - Azurmalachite can fly without wings. While flying, she counts as Far to anyone on the ground.\n\nAzurmalachite are a new Geode, and the Gempire hasn't settled on a job for them yet. For now, most are being tried out on terraforming crews, where they drain flooded kindergarten land, water dry ground, and dig the trenches and walls a new site needs before anything can be built. A few have been loaned to military engineers for the same work under fire."
     }
   ],
   "quartzShifts": [

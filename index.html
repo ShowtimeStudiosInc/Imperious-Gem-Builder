@@ -12,11 +12,15 @@
   <body>
     <main class="shell">
       <header class="hero">
-        <div class="logo-container">
-          <img src="images/logo.png" alt="Imperious Authorities Logo" class="logo" />
+        <div class="identity-lockup">
+          <div class="logo-container">
+            <img src="logo.png" alt="Imperious Authorities Logo" class="logo" />
+          </div>
+          <div class="identity-copy">
+            <p class="eyebrow">IMPERIOUS AUTHORITIES</p>
+            <h1>Gem Builder</h1>
+          </div>
         </div>
-        <p class="eyebrow">IMPERIOUS AUTHORITIES</p>
-        <h1>Gem Builder</h1>
         <p class="lede">Build a gem record under the Diamond Authorities, apply approved modifiers, and view the resulting stat profile.</p>
       </header>
 
@@ -55,6 +59,19 @@
           <div>
             <label for="cut">Cut selection</label>
             <select id="cut"></select>
+          </div>
+        </div>
+        <div class="step hidden" id="defect-stats-step">
+          <span class="step-number">5a</span>
+          <div class="defect-stat-selects">
+            <div>
+              <label for="defect-stat-a">First defective stat</label>
+              <select id="defect-stat-a"></select>
+            </div>
+            <div>
+              <label for="defect-stat-b">Second defective stat</label>
+              <select id="defect-stat-b"></select>
+            </div>
           </div>
         </div>
         <div class="step">
@@ -122,7 +139,7 @@
         </div>
         <h3 class="fusion-heading">Suggested combined abilities</h3>
         <div class="fusion-suggestions" id="fusion-suggestions"></div>
-        <p class="field-note">The total is the two selected gems' base stat sum. Choose which abilities become part of the fusion according to your fusion rules.</p>
+        <p class="field-note">Suggestions are brainstorming prompts, not official fusion rules. They combine the selected abilities and draw on documented Fusion Abilities from the database.</p>
       </section>
 
       <section class="result ability-checker" aria-label="Ability overlap checker">
@@ -141,6 +158,20 @@
         <div class="ability-results" id="ability-results">
           <p class="field-note">Enter an ability name to check for overlaps with existing gems.</p>
         </div>
+      </section>
+
+      <section class="result item-rules" aria-label="Items and battle rules">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">REFERENCE</p>
+            <h2>Items & Battle Rules</h2>
+            <p class="lede">The imported item and combat rules, including weapon profiles and item templates.</p>
+          </div>
+        </div>
+        <details>
+          <summary>View Items & Battle Rules</summary>
+          <div id="item-rules-content" class="item-rules-content"></div>
+        </details>
       </section>
 
       <section class="result facet-cut-generator" aria-label="Facet and cut generator">
@@ -164,7 +195,7 @@
               <option value="Epsilon Blue Diamond">Epsilon Blue Diamond (2)</option>
               <option value="Nightshade Violet Diamond">Nightshade Violet Diamond (3)</option>
               <option value="Maroon Red Diamond">Maroon Red Diamond (4)</option>
-              <option value="Emerald Green Diamond">Emerald Green Diamond (5)</option>
+              <option value="Bi-Colored Kandy Diamond">Bi-Colored Kandy Diamond (5)</option>
               <option value="Saturn Light Diamond">Saturn Light Diamond (6)</option>
             </select>
           </div>
@@ -248,23 +279,6 @@
           <label for="character-sheet-input">Character Sheet</label>
           <textarea id="character-sheet-input" rows="12" placeholder="Paste your character sheet here (name, gem type, stats, abilities, etc.)"></textarea>
         </div>
-
-        <div class="structured-validator" aria-label="Gem-Type rules validator">
-          <h3>Gem-Type Rules Check</h3>
-          <div class="validator-grid">
-            <label>Rank or budget<select id="validator-rank"><option value="20">Rank 5.2, Low Servant, budget 20</option><option value="22">Rank 5.1, High Servant, budget 22</option><option value="23">Rank 4.3, Low Service Trade, budget 23</option><option value="25" selected>Rank 4.2, Median Service Trade, budget 25</option><option value="27">Rank 4.1, High Service Trade, budget 27</option><option value="26">Rank 3.3, Low Militia, budget 26</option><option value="28">Rank 3.2, Median Militia, budget 28</option><option value="30">Rank 3.1, High Militia, budget 30</option><option value="30">Rank 2.3, Low Authoritative, budget 30</option><option value="32">Rank 2.2, Median Authoritative, budget 32</option><option value="34">Rank 2.1, High Authoritative, budget 34</option><option value="25">United Frontier standard, budget 25</option><option value="32">United Frontier Era 0 legacy, budget 32</option></select></label>
-            <label>Signature rating<select id="validator-rating"><option value="0">No Signature Ability</option><option value="1">Limited, costs 1</option><option value="2">Minor, costs 2</option><option value="3">Base, costs 3</option><option value="4">Enhanced, costs 4</option><option value="5">Advanced, costs 5</option><option value="6">Perfect, costs 6</option></select></label>
-            <label>Signature name<input id="validator-signature" type="text" placeholder="Optional if there is an ACT Bonus" /></label>
-            <label>Signature class<select id="validator-class"><option value="">Choose class</option><option>Physical</option><option>Summoning</option><option>Visions</option><option>Shapeshifting</option><option>Enchantments</option><option>Alteration</option><option>Elements</option><option>Entropy</option></select></label>
-            <label>SP cost or PASSIVE<input id="validator-sp" type="text" placeholder="Example: 2 SP or PASSIVE" /></label>
-            <label>ACT Bonus<input id="validator-act" type="text" placeholder="Required when there is no Signature" /></label>
-          </div>
-          <div class="validator-grid stat-inputs">
-            <label>HP<input id="validator-hp" type="number" min="0" value="30" /></label><label>ATK<input id="validator-atk" type="number" min="0" value="4" /></label><label>DEF<input id="validator-def" type="number" min="0" value="5" /></label><label>SPD<input id="validator-spd" type="number" min="0" value="5" /></label><label>INT<input id="validator-int" type="number" min="0" value="5" /></label><label>MAG<input id="validator-mag" type="number" min="0" value="5" /></label>
-          </div>
-          <button id="validate-rules-btn" class="validate-btn">Check Gem-Type Rules</button>
-          <div class="validation-results" id="rules-validation-results" aria-live="polite"></div>
-        </div>
         
         <button id="validate-btn" class="validate-btn">Validate Sheet</button>
         
@@ -272,14 +286,8 @@
           <p class="field-note">Paste your character sheet to validate it against Gem Guide template rules.</p>
         </div>
       </section>
-
-      <section class="result battle-reference" aria-label="Battle reference">
-        <div class="result-heading"><div><p class="eyebrow">BATTLE REFERENCE</p><h2>FIGHT and Equipment Rules</h2><p class="lede">A quick reference for weapon rolls, damage soak, position, Defend, and party Star Points.</p></div></div>
-        <details open><summary>How a FIGHT resolves</summary><ol><li>Roll 1d20. Meet the weapon Hit Number plus target SPD divided by 4, rounded down. Natural 20 hits and natural 1 misses.</li><li>Use the weapon’s hit count, including its critical rule.</li><li>Roll damage for each hit and add total ATK once.</li><li>Reduce every landed hit by target DEF divided by 4, rounded down, minimum 1 damage per hit.</li></ol></details>
-        <div class="weapon-reference" id="weapon-reference"></div>
-        <details><summary>Position, Defend, and Star Gauge</summary><p>Most weapons require Near. Ranged can hit Far. Defend halves every hit until the next turn. A shield makes the first Defend reduce damage by three quarters, but consecutive shield Defends become normal half damage. The Star Gauge gains 2 marks at the start of a round, 1 for a critical hit, full dodge, or Defend, and 2 for Protect. At 10 marks, the party gains 5 SP, up to 9 SP.</p></details>
-      </section>
     </main>
+    <script src="gem-database.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
