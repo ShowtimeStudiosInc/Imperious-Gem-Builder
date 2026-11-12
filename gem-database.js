@@ -7911,9 +7911,6 @@ window.GEM_DATABASE = {
       "unique": false,
       "applicableKinds": [
         "Metal"
-      ],
-      "applicableTags": [
-        "Era 0-1"
       ]
     },
     {
